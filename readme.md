@@ -8,7 +8,11 @@ When working with CNC machines there are slightly different demands on user inte
 <img src="/CncPlugin/Screenshots/screenshot-2014-03-30.png">
 
 ## Install (Windows only so far)
-Create the directory C:\Program Files\Repetier-Host\plugins\CncPlugin and drop the two files from "Binaries" directory (cncplugin.dll and cncplugin.pdb from https://github.com/ahd71/repetier-cncplugin/tree/master/CncPlugin/Binaries). Restart Repetier Host. Done :-)
+* Download files (https://github.com/ahd71/repetier-cncplugin/tree/master/CncPlugin/Binaries)
+* Create the directory C:\Program Files\Repetier-Host\plugins\CncPlugin
+* Drop the two files (cncplugin.dll and cncplugin.pdb) into the directory. 
+* Restart Repetier Host.
+* Done :-)
 
 ## Feature list
 * Jog with keyboard (instead of mouse + click) - enabled only when the plugin panel is opened. Right now, arrow keys moves X and Y axis and numerical keyboard keys /*- keys sets step interval.
