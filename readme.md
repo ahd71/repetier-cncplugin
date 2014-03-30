@@ -1,10 +1,13 @@
 # CncControl plugin to Repetier-host
 
 ## Abstract
-This is a plugin for Repetier Host focused on CNC machines which is requires slightly different tratment than 3d printers.
+Repetier Host plugin focused on CNC machines. When working with CNC machines there are slightly different demands on user interface for frequent tasks such as jobbing and probing. 
+
+## Install (Windows only so far)
+Create the directory C:\Program Files\Repetier-Host\plugins\CncPlugin and drop the two files from deploy directory (cncplugin.dll and cncplugin.pdb). Restart Repetier Host. Done :-)
 
 ## Feature list
-* Jog with keyboard (instead of mouse + click) - enabled only when the plugin panel is opened. Right now, arrow keys moves XY and /*- keys sets step interval.
+* Jog with keyboard (instead of mouse + click) - enabled only when the plugin panel is opened. Right now, arrow keys moves X and Y axis and numerical keyboard keys /*- keys sets step interval.
 * Easy access to Z-Probe (G30, G31) and one-click-action to set height (G92 Zn.nn) based on the probing.
 
 ## Planned features
@@ -17,6 +20,6 @@ This is a plugin for Repetier Host focused on CNC machines which is requires sli
 * implement G92 assist mode
 * Change and add key codes for a custom made keyboard to have "all relevant commands as hardware buttons"
 
-Ideas? Please contact me! i got this idea today when I discovered the plugin architecture so it's kind of new...
+Ideas? Please contact me! (I got this idea today when I discovered the plugin architecture so it's kind of new...)
 
 (c) Hellstrand 2014
