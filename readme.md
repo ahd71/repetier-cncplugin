@@ -1,7 +1,11 @@
 # CncControl plugin to Repetier-host
 
 ## Abstract
-Repetier Host plugin focused on CNC machines. When working with CNC machines there are slightly different demands on user interface for frequent tasks such as jobbing and probing. 
+This is a Repetier Host plugin focused on CNC machines. 
+When working with CNC machines there are slightly different demands on user interface for frequent tasks such as jogging and height probing as the machined objects can be clamped at different positions on the bed. 
+
+##Screenshot
+<img src="/CncPlugin/Screenshots/screenshot-2014-03-30.png">
 
 ## Install (Windows only so far)
 Create the directory C:\Program Files\Repetier-Host\plugins\CncPlugin and drop the two files from "Binaries" directory (cncplugin.dll and cncplugin.pdb from https://github.com/ahd71/repetier-cncplugin/tree/master/CncPlugin/Binaries). Restart Repetier Host. Done :-)
@@ -20,6 +24,7 @@ Create the directory C:\Program Files\Repetier-Host\plugins\CncPlugin and drop t
 * implement G92 assist mode
 * Change and add key codes for a custom made keyboard to have "all relevant commands as hardware buttons"
 
-Ideas? Please contact me! (I got this idea today when I discovered the plugin architecture so it's kind of new...)
+## Contact information
+Ideas? Please contact me here at github! (I got this idea today when I discovered the plugin architecture so it's kind of new...)
 
 (c) Hellstrand 2014
