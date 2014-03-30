@@ -18,6 +18,7 @@ Create the directory C:\Program Files\Repetier-Host\plugins\CncPlugin and drop t
 * Spindle on/off and PWM (configurable for different configurations, such as via the FAN_PORT etc)
 
 ## To-do
+* disable all elements unless the device is connected
 * show current XYZ position in the panel
 * update 3d view after each jog if possible (seems to update but "one step behind")
 * implement G1 assist mode
