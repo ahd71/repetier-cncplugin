@@ -4,7 +4,7 @@
 Repetier Host plugin focused on CNC machines. When working with CNC machines there are slightly different demands on user interface for frequent tasks such as jobbing and probing. 
 
 ## Install (Windows only so far)
-Create the directory C:\Program Files\Repetier-Host\plugins\CncPlugin and drop the two files from deploy directory (cncplugin.dll and cncplugin.pdb). Restart Repetier Host. Done :-)
+Create the directory C:\Program Files\Repetier-Host\plugins\CncPlugin and drop the two files from "Binaries" directory (cncplugin.dll and cncplugin.pdb from https://github.com/ahd71/repetier-cncplugin/tree/master/CncPlugin/Binaries). Restart Repetier Host. Done :-)
 
 ## Feature list
 * Jog with keyboard (instead of mouse + click) - enabled only when the plugin panel is opened. Right now, arrow keys moves X and Y axis and numerical keyboard keys /*- keys sets step interval.

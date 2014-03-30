@@ -34,6 +34,7 @@
             this.btn_probe_read = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_set_probe = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_step_5 = new System.Windows.Forms.Button();
             this.btn_step_3 = new System.Windows.Forms.Button();
@@ -70,7 +71,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button13 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -127,11 +127,20 @@
             // 
             this.btn_set_probe.Location = new System.Drawing.Point(183, 25);
             this.btn_set_probe.Name = "btn_set_probe";
-            this.btn_set_probe.Size = new System.Drawing.Size(75, 20);
+            this.btn_set_probe.Size = new System.Drawing.Size(107, 20);
             this.btn_set_probe.TabIndex = 14;
-            this.btn_set_probe.Text = "Set ref";
+            this.btn_set_probe.Text = "Set reference";
             this.btn_set_probe.UseVisualStyleBackColor = true;
             this.btn_set_probe.Click += new System.EventHandler(this.btn_set_probe_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(147, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(23, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "mm";
             // 
             // groupBox2
             // 
@@ -145,7 +154,7 @@
             this.groupBox2.Size = new System.Drawing.Size(104, 176);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Step";
+            this.groupBox2.Text = "Distance";
             // 
             // btn_step_5
             // 
@@ -510,15 +519,6 @@
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Visible = false;
             this.button13.Click += new System.EventHandler(this.btn_test);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(147, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "mm";
             // 
             // CncControl
             // 

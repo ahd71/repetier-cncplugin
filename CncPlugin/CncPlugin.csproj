@@ -71,6 +71,7 @@
   <ItemGroup>
     <Content Include="Binaries\CncPlugin.dll" />
     <Content Include="Binaries\CncPlugin.pdb" />
+    <Content Include="Screenshots\screenshot-2014-03-30.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
