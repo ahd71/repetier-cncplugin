@@ -21,10 +21,8 @@ When working with CNC machines there are slightly different demands on user inte
 * G1 assist mode (just three textboxes for coordinates to move to, leave empty to not move one or several axis)
 * G92 assist mode  (just three textboxes for redefining coordinates, leave empty to not redefine one or several axis)
 
-## Planned features
+## Planned features / To-do
 * Configurable for different spindle configurations, such as via the FAN_PORT etc)
-
-## To-do
 * posibility to select/configure different keyboard layouts (or disable keyboard shortcuts)
 * show current XYZ position in the panel
 * update 3d view after each jog if possible (seems to update but "one step behind" just like the default manual control page)
@@ -39,5 +37,4 @@ When working with CNC machines there are slightly different demands on user inte
 
 ## Contact information
 Ideas? Please contact me here via github! 
-
 (c) Hellstrand 2014
