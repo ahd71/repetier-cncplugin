@@ -22,7 +22,9 @@ When working with CNC machines there are slightly different demands on user inte
 * Spindle on/off and PWM (configurable for different configurations, such as via the FAN_PORT etc)
 
 ## To-do
-* disable all elements unless the device is connected
+* posibility to select different keyboard layouts (or none)
+* release number and date into the dll and ui (and readme)
+* disable all elements unless the device is connected (iPrintConnection OnPrinterConnectionChange eventConnectionChange ???)
 * show current XYZ position in the panel
 * update 3d view after each jog if possible (seems to update but "one step behind")
 * implement G1 assist mode

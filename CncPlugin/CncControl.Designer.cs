@@ -83,9 +83,9 @@
             // 
             this.button1.Location = new System.Drawing.Point(21, 25);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(59, 20);
+            this.button1.Size = new System.Drawing.Size(75, 20);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Probe";
+            this.button1.Text = "Probe (G30)";
             this.button1.UseMnemonic = false;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btn_probe);
@@ -99,11 +99,11 @@
             // 
             // btn_probe_read
             // 
-            this.btn_probe_read.Location = new System.Drawing.Point(296, 25);
+            this.btn_probe_read.Location = new System.Drawing.Point(272, 25);
             this.btn_probe_read.Name = "btn_probe_read";
-            this.btn_probe_read.Size = new System.Drawing.Size(56, 20);
+            this.btn_probe_read.Size = new System.Drawing.Size(80, 20);
             this.btn_probe_read.TabIndex = 1;
-            this.btn_probe_read.Text = "Read";
+            this.btn_probe_read.Text = "Read (G31)";
             this.btn_probe_read.UseMnemonic = false;
             this.btn_probe_read.UseVisualStyleBackColor = true;
             this.btn_probe_read.Click += new System.EventHandler(this.btn_probe_read_Click);
@@ -125,9 +125,9 @@
             // 
             // btn_set_probe
             // 
-            this.btn_set_probe.Location = new System.Drawing.Point(183, 25);
+            this.btn_set_probe.Location = new System.Drawing.Point(176, 25);
             this.btn_set_probe.Name = "btn_set_probe";
-            this.btn_set_probe.Size = new System.Drawing.Size(107, 20);
+            this.btn_set_probe.Size = new System.Drawing.Size(90, 20);
             this.btn_set_probe.TabIndex = 14;
             this.btn_set_probe.Text = "Set reference";
             this.btn_set_probe.UseVisualStyleBackColor = true;

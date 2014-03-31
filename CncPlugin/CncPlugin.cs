@@ -46,26 +46,11 @@ namespace CncPlugin
 
         private void Connection_eventResponse(string response, ref RepetierHostExtender.basic.LogLevel level)
         {
-            //host.Connection.analyzeResponse(response, ref level);
             string h = host.Connection.extract(response, "Z-probe:");
             if (h != null)
             {
-                host.LogMessage("## h=" + h);
                 cool.setproberesult(h);
             }
-            string h2;
-                h2= host.Connection.extract(response, "Y:");
-            if (h2 != null)
-            {
-                host.LogMessage("## Y=" + h2);
-            }
-            h2 = host.Connection.extract(response, "X:");
-            if (h2 != null)
-            {
-                host.LogMessage("## Y=" + h2);
-            }
-            //host.LogMessage("#### x:" + host.Connection.Analyzer.x.ToString());
-            //host.LogMessage("#### xoffset:" + host.Connection.Analyzer.xOffset.ToString());
         }
     }
 }
