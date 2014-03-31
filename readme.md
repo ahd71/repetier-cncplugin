@@ -15,7 +15,7 @@ When working with CNC machines there are slightly different demands on user inte
 * Done :-)
 
 ## Feature list
-* Jog with keyboard (instead of mouse + click) - enabled only when the plugin panel is opened. Right now, arrow keys moves X and Y axis and numerical keyboard keys /*- keys sets step interval.
+* Jog with keyboard (instead of mouse + click) - enabled only when the plugin panel is opened. Right now, arrow keys moves X and Y axis, PgUp/PgDn Z axis and numerical keyboard keys /*- keys sets step interval.
 * Easy access to Z-Probe (G30, G31) and one-click-action to set height (G92 Zn.nn) based on the probing.
 * Spindle on/off and PWM 
 * G1 assist mode (just three textboxes for coordinates to move to, leave empty to not move one or several axis)
