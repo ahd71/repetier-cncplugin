@@ -80,12 +80,11 @@
   <ItemGroup>
     <Content Include="Binaries\CncPlugin.dll" />
     <Content Include="Binaries\CncPlugin.pdb" />
+    <Content Include="images\jog.png" />
     <Content Include="Screenshots\screenshot-2014-03-30.png" />
     <Content Include="Screenshots\screenshot-2014-03-31.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="images\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -15,7 +15,7 @@ namespace CncPlugin
     {
         private IHost host;
 
-        const string release = "CncPlugin - v0.10 - (c) Hellstrand 2014-03-31";
+        const string release = "CncPlugin - v0.11 - (c) Hellstrand 2014-03-31";
 
         private float step_size = 10;
 
@@ -99,7 +99,9 @@ namespace CncPlugin
         {
             host = _host;
             host.Connection.eventConnectionChange += MyeventConnectionChange;
+            ToggleConnection(host.Connection.connector.IsConnected());
         }
+
         #region IHostComponent implementation
 
         // Name inside component repository
@@ -120,8 +122,7 @@ namespace CncPlugin
         void Jog(string axis, float step)
         {
 
-            String data = "G1 " + axis + step.ToString();
-
+            String data = "G1 " + axis + step.ToString().Replace(',', '.');
             if (host.Connection.connector.IsConnected())
             {
                 host.Connection.injectManualCommand("G91");
@@ -139,28 +140,28 @@ namespace CncPlugin
             if (keyData == (Keys.Left))
             {
                 Jog("X", -step_size);
-                flash(btn_x_minus);
+                flash_button_when_keypressed(btn_x_minus);
                 return true;
             }
 
             if (keyData == (Keys.Right))
             {
                 Jog("X", +step_size);
-                flash(btn_x_plus);
+                flash_button_when_keypressed(btn_x_plus);
                 return true;
             }
 
             if (keyData == (Keys.Down))
             {
                 Jog("Y", -step_size);
-                flash(btn_y_minus);
+                flash_button_when_keypressed(btn_y_minus);
                 return true;
             }
 
             if (keyData == (Keys.Up))
             {
                 Jog("Y", +step_size);
-                flash(btn_y_plus);
+                flash_button_when_keypressed(btn_y_plus);
                 return true;
             }
 
@@ -168,7 +169,7 @@ namespace CncPlugin
             if (keyData == (Keys.PageDown))
             {
                 Jog("Z", -step_size);
-                flash(btn_z_minus);
+                flash_button_when_keypressed(btn_z_minus);
                 return true;
             }
 
@@ -176,7 +177,7 @@ namespace CncPlugin
             if (keyData == (Keys.PageUp))
             {
                 Jog("Z", +step_size);
-                flash(btn_z_plus);
+                flash_button_when_keypressed(btn_z_plus);
                 return true;
             }
 
@@ -184,21 +185,21 @@ namespace CncPlugin
             if (keyData == (Keys.Divide))
             {
                 SetStep(10);
-                flash(btn_step_4);
+                flash_button_when_keypressed(btn_step_4);
                 return true;
             }
 
             if (keyData == (Keys.Multiply))
             {
                 SetStep(1);
-                flash(btn_step_2);
+                flash_button_when_keypressed(btn_step_2);
                 return true;
             }
 
             if (keyData == (Keys.Subtract))
             {
                 SetStep(0.1F);
-                flash(btn_step_1);
+                flash_button_when_keypressed(btn_step_1);
                 return true;
             }
 
@@ -207,6 +208,7 @@ namespace CncPlugin
 
         private void CoolControl_Load(object sender, EventArgs e)
         {
+            host.LogInfo("SUB: CoolControl_Load");
         }
 
         private void btn_probe(object sender, EventArgs e)
@@ -218,6 +220,7 @@ namespace CncPlugin
         private void btn_probe_read_Click(object sender, System.EventArgs e)
         {
             host.Connection.injectManualCommand("G31");
+            MessageBox.Show(host.Connection.x.ToString());
         }
 
         private void vc(object sender, EventArgs e)
@@ -290,7 +293,7 @@ namespace CncPlugin
             host.Connection.injectManualCommand("G92 Z" + txtProbeMeasurment.Text);
         }
 
-        private void flash(System.Windows.Forms.Button b)
+        private void flash_button_when_keypressed(System.Windows.Forms.Button b)
         {
             Color previous_color = b.BackColor;
             b.BackColor = Color.Black;
@@ -298,11 +301,6 @@ namespace CncPlugin
             System.Threading.Thread.Sleep(50);
             b.BackColor = previous_color;
             b.Refresh();
-        }
-
-        private void btn_test(object sender, EventArgs e)
-        {
-            host.Connection.open();
         }
 
         void enableUI(Boolean state)
@@ -324,10 +322,27 @@ namespace CncPlugin
             btn_spindle.Text = "";
         }
 
+        void ToggleConnection(Boolean state)
+        {
+            linkLabel1.Enabled = true;
+            if (state)
+            {
+                enableUI(true);
+                SetStep(step_size);
+                UpdateSpindleUI();
+                linkLabel1.Text = "Disconnect";
+            }
+            else
+            {
+                ResetStepButtonColor();
+                enableUI(false);
+                linkLabel1.Text = "Connect";
+            }
+        }
+
         private void MyeventConnectionChange(string msg)
         {
-            if (msg.StartsWith("Connected")) { enableUI(true); SetStep(step_size); UpdateSpindleUI(); }
-            if (msg.StartsWith("Disconnected")) { ResetStepButtonColor(); enableUI(false); }
+            ToggleConnection(host.Connection.connector.IsConnected());
         }
 
         private void btnSendG1(object sender, EventArgs e)
@@ -369,7 +384,7 @@ namespace CncPlugin
                 SendManualCommand();
                 txt_manual_command.Text = "";
                 e.Handled = true;
-                flash(btn_send_manual_command);
+                flash_button_when_keypressed(btn_send_manual_command);
             }
         }
 
@@ -399,6 +414,21 @@ namespace CncPlugin
                 btn_spindle.BackColor = Color.Green;
                 btn_spindle.Text = "START";
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabel1.Enabled = false;
+
+            if (host.Connection.connector.IsConnected())
+            {
+                host.Connection.close();
+            }
+            else
+            {
+                host.Connection.open();
+            }
+
         }
 
 
