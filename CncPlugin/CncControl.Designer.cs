@@ -78,6 +78,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblReleaseMessage = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lnkPreferences = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -593,16 +594,28 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Location = new System.Drawing.Point(4, 5);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(46, 13);
+            this.linkLabel1.Size = new System.Drawing.Size(47, 13);
             this.linkLabel1.TabIndex = 21;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "connect";
+            this.linkLabel1.Text = "Connect";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // lnkPreferences
+            // 
+            this.lnkPreferences.AutoSize = true;
+            this.lnkPreferences.Location = new System.Drawing.Point(71, 5);
+            this.lnkPreferences.Name = "lnkPreferences";
+            this.lnkPreferences.Size = new System.Drawing.Size(64, 13);
+            this.lnkPreferences.TabIndex = 22;
+            this.lnkPreferences.TabStop = true;
+            this.lnkPreferences.Text = "Preferences";
+            this.lnkPreferences.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkPreferences_LinkClicked);
             // 
             // CncControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lnkPreferences);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.lblReleaseMessage);
             this.Controls.Add(this.groupBox5);
@@ -681,5 +694,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.LinkLabel lnkPreferences;
     }
 }

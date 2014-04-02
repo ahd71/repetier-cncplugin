@@ -28,7 +28,6 @@ namespace CncPlugin
         {
             step_size = step;
 
-
             Color c2 = Color.Gray;
             Color c3 = Color.White;
 
@@ -429,6 +428,12 @@ namespace CncPlugin
                 host.Connection.open();
             }
 
+        }
+
+        private void lnkPreferences_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form f = new preferences(host);
+            f.Show();
         }
 
 
