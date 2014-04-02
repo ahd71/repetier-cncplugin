@@ -7,7 +7,8 @@ When working with CNC machines there are slightly different demands on user inte
 ##Screenshot
 <img src="/CncPlugin/Screenshots/screenshot-2014-03-31.png">
 
-## Install (Windows only so far)
+## Install
+(Only windows tested so far but plugins are supposed to work in linux too)
 * Create the directory C:\Program Files\Repetier-Host\plugins\CncPlugin
 * Change privileges to write access for the folder if required.
 * Download plugin dll (https://github.com/ahd71/repetier-cncplugin/raw/master/CncPlugin/Binaries/CncPlugin.dll)
