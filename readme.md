@@ -25,13 +25,7 @@ When working with CNC machines there are slightly different demands on user inte
 * G92 assist mode  (just three textboxes for redefining coordinates, leave empty to not redefine one or several axis)
 
 ## Planned features / To-do
-* Configurable for different spindle configurations, such as via the FAN_PORT etc)
-* posibility to select/configure different keyboard layouts (or disable keyboard shortcuts)
-* show current XYZ position in the panel
-* update 3d view after each jog if possible (seems to update but "one step behind" just like the default manual control page)
-* imperial (inch) support? (configurable distance and a simple label)
-* limit Z jog to 10mm to avoid accidents....
-* Preferences dialog (to host all configurable options to be saved in the host register structure)
+(Moved to the issue tracker, but most important at this time is a Preferences dialog to host all configurable options to be saved in the host register structure like keyboard short cuts and step distances and spindle commands)
 
 ## Releases
 * 0.11 / 2014-03-31 - Bug fix: 0.1mm jog fixed (invalid decimal point), Added Connect/Disconnect short cut and graphics
