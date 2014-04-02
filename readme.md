@@ -9,10 +9,10 @@ When working with CNC machines there are slightly different demands on user inte
 
 ## Install (Windows only so far)
 * Create the directory C:\Program Files\Repetier-Host\plugins\CncPlugin
-* if required change privileges for write access
-* Download dll (https://github.com/ahd71/repetier-cncplugin/raw/master/CncPlugin/Binaries/CncPlugin.dll)
-* Copy dll file (CncPlugin.dll) into the directory. Apperently Repetier host is case sensitive.
-* Unblock windows security for the file if required (right click on file and click UNBLOCK
+* Change privileges to write access for the folder if required.
+* Download plugin dll (https://github.com/ahd71/repetier-cncplugin/raw/master/CncPlugin/Binaries/CncPlugin.dll)
+* Copy dll file (CncPlugin.dll) into the new directory (note that Repetier host is case sensitive)
+* Unblock windows security for the file if required (right click on file and click UNBLOCK https://github.com/ahd71/repetier-cncplugin/blob/master/CncPlugin/Screenshots/security_unblock.PNG)
 * Restart Repetier Host.
 * Done :-)
 
