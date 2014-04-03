@@ -1,8 +1,7 @@
 # CncControl plugin to Repetier-host
 
 ## Abstract
-This is a Repetier Host plugin focused on CNC machines. 
-When working with CNC machines there are slightly different demands on user interface for frequent tasks such as jogging and height probing as the machined objects can be clamped at different positions on the bed. 
+A Repetier Host plugin focused on CNC machines. Working with CNC machines require slightly different user interface for frequent tasks such as jogging and height probing as the machined objects can be clamped at different positions on the bed. This plugin combines thoose into one panel in an intuitive way.
 
 ##Screenshot
 <img src="/CncPlugin/Screenshots/screenshot-2014-03-31.png">
@@ -17,7 +16,7 @@ When working with CNC machines there are slightly different demands on user inte
 * Restart Repetier Host.
 * Done :-)
 
-## Feature list
+## Features
 * Jog with keyboard (instead of mouse + click) - enabled only when the plugin panel is opened. Right now, arrow keys moves X and Y axis, PgUp/PgDn Z axis and numerical keyboard keys /*- keys sets step interval.
 * Easy access to Z-Probe (G30, G31) and one-click-action to set height (G92 Zn.nn) based on the probing.
 * Spindle on/off and PWM 
@@ -25,7 +24,8 @@ When working with CNC machines there are slightly different demands on user inte
 * G92 assist mode  (just three textboxes for redefining coordinates, leave empty to not redefine one or several axis)
 
 ## Planned features / To-do
-(Moved to the [issue tracker](https://github.com/ahd71/repetier-cncplugin/issues)., but most important at this time is a Preferences dialog to host all configurable options to be saved in the host register structure like keyboard short cuts and step distances and spindle commands)
+See the [issue tracker](https://github.com/ahd71/repetier-cncplugin/issues).
+(most important at this time is to complete a Preferences dialog to host all configurable options to be saved in the host register structure, i.e keyboard short cuts and step distances and spindle commands)
 
 ## Releases
 * 0.11 / 2014-03-31 - Bug fix: 0.1mm jog fixed (invalid decimal point), Added Connect/Disconnect short cut and graphics
