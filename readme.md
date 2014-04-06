@@ -1,10 +1,15 @@
 # CncControl plugin to Repetier-host
 
 ## Abstract
-A Repetier Host plugin focused on CNC machines. Working with CNC machines require slightly different user interface for frequent tasks such as jogging and height probing as the machined objects can be clamped at different positions on the bed. This plugin combines thoose into one panel in an intuitive way.
+A Repetier Host plugin focused on CNC machine operationss.
+Working with CNC machines require slightly different user interface for frequent tasks such as jogging and height probing as the machined objects can be clamped at different positions on the bed. This plugin combines thoose into one panel in an intuitive way.
 
 ##Screenshot
-<img src="/CncPlugin/Screenshots/screenshot-2014-03-31.png">
+### Main tab
+<img src="/CncPlugin/Screenshots/screenshot-2014-04-06.png">
+### Preference settings
+<img src="/CncPlugin/Screenshots/preferences-2014-04-06.PNG">
+
 
 ## Install
 (Only windows tested so far but plugins are supposed to work in linux too)
@@ -23,8 +28,8 @@ A Repetier Host plugin focused on CNC machines. Working with CNC machines requir
 * G1 assist mode (just three textboxes for coordinates to move to, leave empty to not move one or several axis)
 * G92 assist mode  (just three textboxes for redefining coordinates, leave empty to not redefine one or several axis)
 
-## keyboard short cuts
-* Default configured for jog via arrow keys and PgUp/PgDn. Fully configurable via key codes from http://msdn.microsoft.com/library/windows/apps/windows.system.virtualkey
+## Keyboard short cuts
+* Default configured for jog via arrow keys and PgUp/PgDn. Fully configurable via key codes defined in http://msdn.microsoft.com/library/windows/apps/windows.system.virtualkey
 
 ## Planned features / To-do
 See the [issue tracker](https://github.com/ahd71/repetier-cncplugin/issues).
