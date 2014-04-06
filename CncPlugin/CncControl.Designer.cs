@@ -630,7 +630,7 @@
             this.lblPosX.Size = new System.Drawing.Size(52, 13);
             this.lblPosX.TabIndex = 23;
             this.lblPosX.Text = "-";
-            this.lblPosX.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblPosX.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblPosZ
             // 
@@ -640,7 +640,7 @@
             this.lblPosZ.Size = new System.Drawing.Size(52, 13);
             this.lblPosZ.TabIndex = 23;
             this.lblPosZ.Text = "-";
-            this.lblPosZ.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblPosZ.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblPosY
             // 
@@ -650,7 +650,7 @@
             this.lblPosY.Size = new System.Drawing.Size(52, 13);
             this.lblPosY.TabIndex = 23;
             this.lblPosY.Text = "-";
-            this.lblPosY.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblPosY.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // CncControl
             // 
