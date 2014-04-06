@@ -35,6 +35,7 @@ Working with CNC machines require slightly different user interface for frequent
 See the [issue tracker](https://github.com/ahd71/repetier-cncplugin/issues).
 
 ## Releases
+* 0.13 / 2014-04-06 - Presentation of current position from the analyzer object
 * 0.12 / 2014-04-06 - User preferences for short cut keys and step size
 * 0.11 / 2014-03-31 - Bug fix: 0.1mm jog fixed (invalid decimal point), Added Connect/Disconnect short cut and graphics
 * 0.10 / 2014-03-31 - Added spindle control and gcode sender for move/setref/manual. Controls properly disabled when machine is disconnected. Gcode info next to buttons.

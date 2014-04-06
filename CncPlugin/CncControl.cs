@@ -15,7 +15,7 @@ namespace CncPlugin
     {
         private IHost host;
 
-        const string release = "CncPlugin - v0.12 - (c) Hellstrand 2014-04-06";
+        const string release = "CncPlugin - v0.13 - (c) Hellstrand 2014-04-06";
 
         private double step_size;
 
@@ -313,6 +313,10 @@ namespace CncPlugin
 
             btn_spindle.BackColor = Color.LightGray;
             btn_spindle.Text = "";
+
+            lblPosX.Visible = state;
+            lblPosY.Visible = state;
+            lblPosZ.Visible = state;
         }
 
         void ToggleConnection(Boolean state)
@@ -442,11 +446,18 @@ namespace CncPlugin
 
         private void Connection_eventResponse(string response, ref RepetierHostExtender.basic.LogLevel level)
         {
+            // update position from analyzer
+
+            lblPosX.Text = host.Connection.Analyzer.x.ToString();
+            lblPosY.Text = host.Connection.Analyzer.y.ToString();
+            lblPosZ.Text = host.Connection.Analyzer.z.ToString();
+
             string h = host.Connection.extract(response, "Z-probe:");
             if (h != null)
             {
                 txtProbeMeasurment.Text = h;
             }
+
         }
 
     }

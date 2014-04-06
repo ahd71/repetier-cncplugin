@@ -53,6 +53,9 @@
             this.btn_y_plus = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.btn_spindle = new System.Windows.Forms.Button();
             this.slide_spindlespeed = new System.Windows.Forms.TrackBar();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -77,6 +80,9 @@
             this.lblReleaseMessage = new System.Windows.Forms.Label();
             this.lnkConnectDisconnect = new System.Windows.Forms.LinkLabel();
             this.lnkPreferences = new System.Windows.Forms.LinkLabel();
+            this.lblPosX = new System.Windows.Forms.Label();
+            this.lblPosZ = new System.Windows.Forms.Label();
+            this.lblPosY = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -323,22 +329,52 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.btn_spindle);
             this.groupBox4.Controls.Add(this.slide_spindlespeed);
             this.groupBox4.Enabled = false;
             this.groupBox4.Location = new System.Drawing.Point(7, 334);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(408, 75);
+            this.groupBox4.Size = new System.Drawing.Size(408, 83);
             this.groupBox4.TabIndex = 16;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Spindle";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(365, 54);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(26, 13);
+            this.label14.TabIndex = 19;
+            this.label14.Text = "max";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(239, 54);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(31, 13);
+            this.label15.TabIndex = 19;
+            this.label15.Text = "RPM";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(127, 54);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(23, 13);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "min";
             // 
             // btn_spindle
             // 
             this.btn_spindle.ForeColor = System.Drawing.Color.White;
             this.btn_spindle.Location = new System.Drawing.Point(15, 26);
             this.btn_spindle.Name = "btn_spindle";
-            this.btn_spindle.Size = new System.Drawing.Size(92, 32);
+            this.btn_spindle.Size = new System.Drawing.Size(92, 43);
             this.btn_spindle.TabIndex = 8;
             this.btn_spindle.UseMnemonic = false;
             this.btn_spindle.UseVisualStyleBackColor = true;
@@ -346,10 +382,10 @@
             // 
             // slide_spindlespeed
             // 
-            this.slide_spindlespeed.Location = new System.Drawing.Point(109, 26);
+            this.slide_spindlespeed.Location = new System.Drawing.Point(125, 22);
             this.slide_spindlespeed.Maximum = 255;
             this.slide_spindlespeed.Name = "slide_spindlespeed";
-            this.slide_spindlespeed.Size = new System.Drawing.Size(283, 45);
+            this.slide_spindlespeed.Size = new System.Drawing.Size(267, 45);
             this.slide_spindlespeed.TabIndex = 7;
             this.slide_spindlespeed.TickFrequency = 16;
             this.slide_spindlespeed.Value = 128;
@@ -357,8 +393,11 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.lblPosZ);
+            this.groupBox5.Controls.Add(this.lblPosY);
             this.groupBox5.Controls.Add(this.label7);
             this.groupBox5.Controls.Add(this.label8);
+            this.groupBox5.Controls.Add(this.lblPosX);
             this.groupBox5.Controls.Add(this.label9);
             this.groupBox5.Controls.Add(this.btn_send_manual_command);
             this.groupBox5.Controls.Add(this.txt_manual_command);
@@ -376,7 +415,7 @@
             this.groupBox5.Controls.Add(this.label4);
             this.groupBox5.Controls.Add(this.label2);
             this.groupBox5.Enabled = false;
-            this.groupBox5.Location = new System.Drawing.Point(7, 415);
+            this.groupBox5.Location = new System.Drawing.Point(7, 423);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(408, 120);
             this.groupBox5.TabIndex = 17;
@@ -386,7 +425,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(169, 59);
+            this.label7.Location = new System.Drawing.Point(169, 67);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(14, 13);
             this.label7.TabIndex = 12;
@@ -396,7 +435,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(93, 59);
+            this.label8.Location = new System.Drawing.Point(93, 67);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(14, 13);
             this.label8.TabIndex = 13;
@@ -406,7 +445,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(19, 59);
+            this.label9.Location = new System.Drawing.Point(19, 67);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(14, 13);
             this.label9.TabIndex = 14;
@@ -415,7 +454,7 @@
             // 
             // btn_send_manual_command
             // 
-            this.btn_send_manual_command.Location = new System.Drawing.Point(249, 80);
+            this.btn_send_manual_command.Location = new System.Drawing.Point(249, 88);
             this.btn_send_manual_command.Name = "btn_send_manual_command";
             this.btn_send_manual_command.Size = new System.Drawing.Size(75, 23);
             this.btn_send_manual_command.TabIndex = 11;
@@ -425,7 +464,7 @@
             // 
             // txt_manual_command
             // 
-            this.txt_manual_command.Location = new System.Drawing.Point(35, 82);
+            this.txt_manual_command.Location = new System.Drawing.Point(35, 90);
             this.txt_manual_command.Name = "txt_manual_command";
             this.txt_manual_command.Size = new System.Drawing.Size(200, 20);
             this.txt_manual_command.TabIndex = 10;
@@ -433,7 +472,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(249, 54);
+            this.button11.Location = new System.Drawing.Point(249, 62);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(75, 23);
             this.button11.TabIndex = 9;
@@ -443,7 +482,7 @@
             // 
             // txt_g92_x
             // 
-            this.txt_g92_x.Location = new System.Drawing.Point(35, 57);
+            this.txt_g92_x.Location = new System.Drawing.Point(35, 65);
             this.txt_g92_x.Name = "txt_g92_x";
             this.txt_g92_x.Size = new System.Drawing.Size(52, 20);
             this.txt_g92_x.TabIndex = 8;
@@ -451,7 +490,7 @@
             // 
             // txt_g92_y
             // 
-            this.txt_g92_y.Location = new System.Drawing.Point(109, 56);
+            this.txt_g92_y.Location = new System.Drawing.Point(109, 64);
             this.txt_g92_y.Name = "txt_g92_y";
             this.txt_g92_y.Size = new System.Drawing.Size(52, 20);
             this.txt_g92_y.TabIndex = 7;
@@ -459,7 +498,7 @@
             // 
             // txt_g92_z
             // 
-            this.txt_g92_z.Location = new System.Drawing.Point(183, 56);
+            this.txt_g92_z.Location = new System.Drawing.Point(183, 64);
             this.txt_g92_z.Name = "txt_g92_z";
             this.txt_g92_z.Size = new System.Drawing.Size(52, 20);
             this.txt_g92_z.TabIndex = 6;
@@ -469,7 +508,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.SkyBlue;
-            this.label3.Location = new System.Drawing.Point(330, 59);
+            this.label3.Location = new System.Drawing.Point(330, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 13);
             this.label3.TabIndex = 5;
@@ -477,7 +516,7 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(249, 27);
+            this.button10.Location = new System.Drawing.Point(249, 35);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(75, 23);
             this.button10.TabIndex = 4;
@@ -487,7 +526,7 @@
             // 
             // txt_g0_z
             // 
-            this.txt_g0_z.Location = new System.Drawing.Point(183, 29);
+            this.txt_g0_z.Location = new System.Drawing.Point(183, 37);
             this.txt_g0_z.Name = "txt_g0_z";
             this.txt_g0_z.Size = new System.Drawing.Size(52, 20);
             this.txt_g0_z.TabIndex = 3;
@@ -495,7 +534,7 @@
             // 
             // txt_g0_y
             // 
-            this.txt_g0_y.Location = new System.Drawing.Point(109, 29);
+            this.txt_g0_y.Location = new System.Drawing.Point(109, 37);
             this.txt_g0_y.Name = "txt_g0_y";
             this.txt_g0_y.Size = new System.Drawing.Size(52, 20);
             this.txt_g0_y.TabIndex = 2;
@@ -503,7 +542,7 @@
             // 
             // txt_g0_x
             // 
-            this.txt_g0_x.Location = new System.Drawing.Point(35, 29);
+            this.txt_g0_x.Location = new System.Drawing.Point(35, 37);
             this.txt_g0_x.Name = "txt_g0_x";
             this.txt_g0_x.Size = new System.Drawing.Size(52, 20);
             this.txt_g0_x.TabIndex = 1;
@@ -512,7 +551,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(169, 32);
+            this.label6.Location = new System.Drawing.Point(169, 40);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(14, 13);
             this.label6.TabIndex = 0;
@@ -522,7 +561,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(93, 32);
+            this.label5.Location = new System.Drawing.Point(93, 40);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(14, 13);
             this.label5.TabIndex = 0;
@@ -532,7 +571,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 32);
+            this.label4.Location = new System.Drawing.Point(19, 40);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(14, 13);
             this.label4.TabIndex = 0;
@@ -543,7 +582,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.SkyBlue;
-            this.label2.Location = new System.Drawing.Point(330, 32);
+            this.label2.Location = new System.Drawing.Point(330, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(21, 13);
             this.label2.TabIndex = 0;
@@ -554,7 +593,7 @@
             this.lblReleaseMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblReleaseMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblReleaseMessage.ForeColor = System.Drawing.Color.Silver;
-            this.lblReleaseMessage.Location = new System.Drawing.Point(4, 541);
+            this.lblReleaseMessage.Location = new System.Drawing.Point(4, 549);
             this.lblReleaseMessage.Name = "lblReleaseMessage";
             this.lblReleaseMessage.Size = new System.Drawing.Size(411, 23);
             this.lblReleaseMessage.TabIndex = 19;
@@ -582,6 +621,36 @@
             this.lnkPreferences.TabStop = true;
             this.lnkPreferences.Text = "Preferences";
             this.lnkPreferences.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkPreferences_LinkClicked);
+            // 
+            // lblPosX
+            // 
+            this.lblPosX.ForeColor = System.Drawing.Color.Green;
+            this.lblPosX.Location = new System.Drawing.Point(35, 21);
+            this.lblPosX.Name = "lblPosX";
+            this.lblPosX.Size = new System.Drawing.Size(52, 13);
+            this.lblPosX.TabIndex = 23;
+            this.lblPosX.Text = "-";
+            this.lblPosX.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblPosZ
+            // 
+            this.lblPosZ.ForeColor = System.Drawing.Color.Green;
+            this.lblPosZ.Location = new System.Drawing.Point(183, 21);
+            this.lblPosZ.Name = "lblPosZ";
+            this.lblPosZ.Size = new System.Drawing.Size(52, 13);
+            this.lblPosZ.TabIndex = 23;
+            this.lblPosZ.Text = "-";
+            this.lblPosZ.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblPosY
+            // 
+            this.lblPosY.ForeColor = System.Drawing.Color.Green;
+            this.lblPosY.Location = new System.Drawing.Point(109, 21);
+            this.lblPosY.Name = "lblPosY";
+            this.lblPosY.Size = new System.Drawing.Size(52, 13);
+            this.lblPosY.TabIndex = 23;
+            this.lblPosY.Text = "-";
+            this.lblPosY.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // CncControl
             // 
@@ -665,5 +734,11 @@
         private System.Windows.Forms.LinkLabel lnkConnectDisconnect;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.LinkLabel lnkPreferences;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblPosZ;
+        private System.Windows.Forms.Label lblPosY;
+        private System.Windows.Forms.Label lblPosX;
     }
 }

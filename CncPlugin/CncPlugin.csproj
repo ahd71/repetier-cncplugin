@@ -96,7 +96,7 @@
     <Content Include="Screenshots\security_unblock.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Other\CncPluginPreferences.reg" />
+    <Folder Include="Other\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
