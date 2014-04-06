@@ -33,7 +33,6 @@ Working with CNC machines require slightly different user interface for frequent
 
 ## Planned features / To-do
 See the [issue tracker](https://github.com/ahd71/repetier-cncplugin/issues).
-(most important at this time is to complete a Preferences dialog to host all configurable options to be saved in the host register structure, i.e keyboard short cuts and step distances and spindle commands)
 
 ## Releases
 * 0.12 / 2014-04-06 - User preferences for short cut keys and step size
