@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PluginPreferences.cs" />
     <Compile Include="CncControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -52,6 +53,12 @@
       <DependentUpon>CncControl.cs</DependentUpon>
     </Compile>
     <Compile Include="CncPlugin.cs" />
+    <Compile Include="preferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="preferences.Designer.cs">
+      <DependentUpon>preferences.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -68,6 +75,9 @@
     <EmbeddedResource Include="CncControl.resx">
       <DependentUpon>CncControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="preferences.resx">
+      <DependentUpon>preferences.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -83,8 +93,11 @@
     <Content Include="images\jog.png" />
     <Content Include="Screenshots\screenshot-2014-03-30.png" />
     <Content Include="Screenshots\screenshot-2014-03-31.png" />
+    <Content Include="Screenshots\security_unblock.PNG" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Other\CncPluginPreferences.reg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

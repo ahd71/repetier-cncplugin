@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RepetierHostExtender.interfaces;
+using System.Globalization;
+
 
 /* TODO
 
@@ -22,14 +24,17 @@ namespace CncPlugin
     public partial class preferences : Form
     {
         private IHost host;
-        private IRegMemoryFolder reg;
+        private PluginPreferences pref;
+        private CncControl _cc; 
 
-        public preferences(IHost h)
+        public preferences(IHost h, PluginPreferences _pref, CncControl cc)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             host = h;
-            reg = host.GetRegistryFolder("CncPlugin");
+            pref = _pref;
+            _cc = cc;
+            pref.loadDefaults();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -37,33 +42,37 @@ namespace CncPlugin
             this.Close();
         }
 
+        void loadDefault()
+        {
+            txt_jog_x_minus.Text = pref.jog_key_x_minus.ToString();
+            txt_jog_x_plus.Text = pref.jog_key_x_plus.ToString();
+            txt_jog_y_minus.Text = pref.jog_key_y_minus.ToString();
+            txt_jog_y_plus.Text = pref.jog_key_y_plus.ToString();
+            txt_jog_z_minus.Text = pref.jog_key_z_minus.ToString();
+            txt_jog_z_plus.Text = pref.jog_key_z_plus.ToString();
+
+            txt_step_1.Text = pref.jog_step_1.ToString();
+            txt_step_2.Text = pref.jog_step_2.ToString();
+            txt_step_3.Text = pref.jog_step_3.ToString();
+            txt_step_4.Text = pref.jog_step_4.ToString();
+
+            txt_step1_key.Text = pref.step_key_1.ToString();
+            txt_step2_key.Text = pref.step_key_2.ToString();
+            txt_step3_key.Text = pref.step_key_3.ToString();
+            txt_step4_key.Text = pref.step_key_4.ToString();
+
+            txt_spindle_start.Text = pref.spindle_start;
+            txt_spindle_stop.Text = pref.spindle_stop;
+            txt_spindle_pwm.Text = pref.spindle_pwm;
+
+            if (pref.jog_unit == "mm") { rb_unit_mm.Checked = true; } else { rb_unit_inch.Checked = true; }
+        }
+
         private void preferences_Load(object sender, EventArgs e)
         {
-            LoadPreferences();
+            loadDefault();
         }
 
-        private void LoadPreferences()
-        {
-            txt_jog_x_minus.Text = reg.GetDouble("jog_x_minus", 37).ToString();
-            txt_jog_x_plus.Text = reg.GetDouble("jog_x_plus", 39).ToString();
-            txt_jog_y_minus.Text = reg.GetDouble("jog_y_minus", 38).ToString();
-            txt_jog_y_plus.Text = reg.GetDouble("jog_y_plus", 40).ToString();
-            txt_jog_z_minus.Text = reg.GetDouble("jog_z_minus", 34).ToString();
-            txt_jog_z_plus.Text = reg.GetDouble("jog_z_plus", 33).ToString();
-
-            txt_step_1.Text = (reg.GetDouble("jog_step_1", 50000) / 1000).ToString();  // unit is micrometer to simplify storage
-            txt_step_2.Text = (reg.GetDouble("jog_step_2", 10000) / 1000).ToString();
-            txt_step_3.Text = (reg.GetDouble("jog_step_3", 5000) / 1000).ToString();
-            txt_step_4.Text = (reg.GetDouble("jog_step_4", 1000) / 1000).ToString();
-            txt_step_5.Text = (reg.GetDouble("jog_step_5", 100) / 1000).ToString();
-
-            txt_spindle_start.Text = reg.GetString("spindle_start", "M106 %p");
-            txt_spindle_stop.Text = reg.GetString("spindle_stop", "M107");
-            txt_spindle_pwm.Text = reg.GetString("spindle_pwm", "M106 %p");
-
-            if (reg.GetString("jog_unit", "mm") == "inch") { rb_unit_inch.Checked = true; } else { rb_unit_mm.Checked = true; }
-
-        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -73,31 +82,47 @@ namespace CncPlugin
 
         private void SavePreferences()
         {
-            reg.SetDouble("jog_x_minus", double.Parse(txt_jog_x_minus.Text));
-            reg.SetDouble("jog_x_plus", double.Parse(txt_jog_x_plus.Text));
-            reg.SetDouble("jog_y_minus", double.Parse(txt_jog_y_minus.Text));
-            reg.SetDouble("jog_y_plus", double.Parse(txt_jog_y_plus.Text));
-            reg.SetDouble("jog_z_minus", double.Parse(txt_jog_z_minus.Text));
-            reg.SetDouble("jog_z_plus", double.Parse(txt_jog_z_plus.Text));
+            pref.jog_key_x_minus = int.Parse(txt_jog_x_minus.Text);
+            pref.jog_key_x_plus = int.Parse(txt_jog_x_plus.Text);
+            pref.jog_key_y_minus = int.Parse(txt_jog_y_minus.Text);
+            pref.jog_key_y_plus = int.Parse(txt_jog_y_plus.Text);
+            pref.jog_key_z_minus = int.Parse(txt_jog_z_minus.Text);
+            pref.jog_key_z_plus = int.Parse(txt_jog_z_plus.Text);
 
-            reg.SetDouble("jog_step_1", (double)(float.Parse(txt_step_1.Text) * 1000));
-            reg.SetDouble("jog_step_2", (double)(float.Parse(txt_step_2.Text) * 1000));
-            reg.SetDouble("jog_step_3", (double)(float.Parse(txt_step_3.Text) * 1000));
-            reg.SetDouble("jog_step_4", (double)(float.Parse(txt_step_4.Text) * 1000));
-            reg.SetDouble("jog_step_5", (double)(float.Parse(txt_step_5.Text) * 1000));
+            pref.jog_step_1 = Double.Parse(txt_step_1.Text);
+            pref.jog_step_2 = Double.Parse(txt_step_2.Text);
+            pref.jog_step_3 = Double.Parse(txt_step_3.Text);
+            pref.jog_step_4 = Double.Parse(txt_step_4.Text);
 
-            reg.SetString("spindle_start", txt_spindle_start.Text);
-            reg.SetString("spindle_stop", txt_spindle_stop.Text);
-            reg.SetString("spindle_pwm", txt_spindle_pwm.Text);
+            pref.step_key_1 = int.Parse(txt_step1_key.Text);
+            pref.step_key_2 = int.Parse(txt_step2_key.Text);
+            pref.step_key_3 = int.Parse(txt_step3_key.Text);
+            pref.step_key_4 = int.Parse(txt_step4_key.Text);
 
-            if (rb_unit_inch.Checked == true) { reg.SetString("jog_unit", "inch"); } else { reg.SetString("jog_unit", "mm"); }
+            pref.spindle_start = txt_spindle_start.Text;
+            pref.spindle_stop = txt_spindle_stop.Text;
+            pref.spindle_pwm = txt_spindle_pwm.Text;
+
+            if (rb_unit_mm.Checked == true) { pref.jog_unit = "mm"; } else { pref.jog_unit = "inch"; }
 
             host.LogMessage("CncPlugin preferences saved");
+            pref.save();
+            _cc.refreshPref();
         }
 
         private void OnlyNumericalData(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back))) e.Handled = true;
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back) || e.KeyChar == Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator))) e.Handled = true;
+        }
+
+  
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            IRegMemoryFolder reg = host.GetRegistryFolder("CncPlugin");
+            reg.DeleteThisFolder();
+            pref.loadDefaults();
+            loadDefault();
+            _cc.refreshPref();
         }
     }
 }

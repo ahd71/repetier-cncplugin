@@ -34,23 +34,13 @@ namespace CncPlugin
             
 
             // Add some text in the about dialog
-            host.AboutDialog.RegisterThirdParty("CNC", "\r\n\r\nCNC control by Anders Hellstrand");
+            host.AboutDialog.RegisterThirdParty("CNC", "\r\n\r\nCNC control by Anders Hellstrand ");
         }
         /// <summary>
         /// Last round of plugin calls. All controls exist, so now you may modify them to your wishes.
         /// </summary>
         public void FinializeInitialize()
         {
-            host.Connection.eventResponse += Connection_eventResponse;
-        }
-
-        private void Connection_eventResponse(string response, ref RepetierHostExtender.basic.LogLevel level)
-        {
-            string h = host.Connection.extract(response, "Z-probe:");
-            if (h != null)
-            {
-                cool.setproberesult(h);
-            }
         }
     }
 }

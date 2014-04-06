@@ -40,7 +40,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btn_step_5 = new System.Windows.Forms.Button();
             this.btn_step_3 = new System.Windows.Forms.Button();
             this.btn_step_4 = new System.Windows.Forms.Button();
             this.btn_step_1 = new System.Windows.Forms.Button();
@@ -56,7 +55,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btn_spindle = new System.Windows.Forms.Button();
             this.slide_spindlespeed = new System.Windows.Forms.TrackBar();
-            this.label13 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -77,7 +75,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblReleaseMessage = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lnkConnectDisconnect = new System.Windows.Forms.LinkLabel();
             this.lnkPreferences = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -129,7 +127,7 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.btn_probe_read);
             this.groupBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.groupBox1.Location = new System.Drawing.Point(7, 243);
+            this.groupBox1.Location = new System.Drawing.Point(7, 258);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(408, 71);
             this.groupBox1.TabIndex = 13;
@@ -187,69 +185,53 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btn_step_5);
             this.groupBox2.Controls.Add(this.btn_step_3);
             this.groupBox2.Controls.Add(this.btn_step_4);
             this.groupBox2.Controls.Add(this.btn_step_1);
             this.groupBox2.Controls.Add(this.btn_step_2);
             this.groupBox2.Location = new System.Drawing.Point(291, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(124, 232);
+            this.groupBox2.Size = new System.Drawing.Size(124, 244);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Distance";
             // 
-            // btn_step_5
-            // 
-            this.btn_step_5.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btn_step_5.Location = new System.Drawing.Point(13, 30);
-            this.btn_step_5.Name = "btn_step_5";
-            this.btn_step_5.Size = new System.Drawing.Size(98, 31);
-            this.btn_step_5.TabIndex = 15;
-            this.btn_step_5.Text = "50 mm";
-            this.btn_step_5.UseVisualStyleBackColor = true;
-            this.btn_step_5.Click += new System.EventHandler(this.btn_step_5_Click);
-            // 
             // btn_step_3
             // 
             this.btn_step_3.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_step_3.Location = new System.Drawing.Point(13, 110);
+            this.btn_step_3.Location = new System.Drawing.Point(13, 136);
             this.btn_step_3.Name = "btn_step_3";
             this.btn_step_3.Size = new System.Drawing.Size(98, 31);
             this.btn_step_3.TabIndex = 14;
-            this.btn_step_3.Text = "5 mm";
             this.btn_step_3.UseVisualStyleBackColor = false;
             this.btn_step_3.Click += new System.EventHandler(this.btn_step_3_Click);
             // 
             // btn_step_4
             // 
-            this.btn_step_4.Location = new System.Drawing.Point(13, 70);
+            this.btn_step_4.Location = new System.Drawing.Point(13, 186);
             this.btn_step_4.Name = "btn_step_4";
             this.btn_step_4.Size = new System.Drawing.Size(98, 31);
             this.btn_step_4.TabIndex = 13;
-            this.btn_step_4.Text = "10 mm";
             this.btn_step_4.UseVisualStyleBackColor = true;
             this.btn_step_4.Click += new System.EventHandler(this.btn_step4_Click);
             // 
             // btn_step_1
             // 
             this.btn_step_1.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_step_1.Location = new System.Drawing.Point(13, 190);
+            this.btn_step_1.Location = new System.Drawing.Point(13, 36);
             this.btn_step_1.Name = "btn_step_1";
             this.btn_step_1.Size = new System.Drawing.Size(98, 31);
             this.btn_step_1.TabIndex = 12;
-            this.btn_step_1.Text = "0.1 mm";
             this.btn_step_1.UseVisualStyleBackColor = false;
             this.btn_step_1.Click += new System.EventHandler(this.btn_step_1_Click);
             // 
             // btn_step_2
             // 
             this.btn_step_2.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_step_2.Location = new System.Drawing.Point(13, 150);
+            this.btn_step_2.Location = new System.Drawing.Point(13, 86);
             this.btn_step_2.Name = "btn_step_2";
             this.btn_step_2.Size = new System.Drawing.Size(98, 31);
             this.btn_step_2.TabIndex = 11;
-            this.btn_step_2.Text = "1 mm";
             this.btn_step_2.UseVisualStyleBackColor = false;
             this.btn_step_2.Click += new System.EventHandler(this.btn_step_2_Click);
             // 
@@ -264,7 +246,7 @@
             this.groupBox3.Controls.Add(this.pictureBox1);
             this.groupBox3.Location = new System.Drawing.Point(7, 35);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(270, 202);
+            this.groupBox3.Size = new System.Drawing.Size(270, 217);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Jog";
@@ -332,9 +314,10 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Location = new System.Drawing.Point(2, 14);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(252, 183);
+            this.pictureBox1.Size = new System.Drawing.Size(260, 200);
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             // 
@@ -342,9 +325,8 @@
             // 
             this.groupBox4.Controls.Add(this.btn_spindle);
             this.groupBox4.Controls.Add(this.slide_spindlespeed);
-            this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Enabled = false;
-            this.groupBox4.Location = new System.Drawing.Point(7, 320);
+            this.groupBox4.Location = new System.Drawing.Point(7, 334);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(408, 75);
             this.groupBox4.TabIndex = 16;
@@ -367,21 +349,11 @@
             this.slide_spindlespeed.Location = new System.Drawing.Point(109, 26);
             this.slide_spindlespeed.Maximum = 255;
             this.slide_spindlespeed.Name = "slide_spindlespeed";
-            this.slide_spindlespeed.Size = new System.Drawing.Size(215, 45);
+            this.slide_spindlespeed.Size = new System.Drawing.Size(283, 45);
             this.slide_spindlespeed.TabIndex = 7;
             this.slide_spindlespeed.TickFrequency = 16;
             this.slide_spindlespeed.Value = 128;
             this.slide_spindlespeed.ValueChanged += new System.EventHandler(this.spindle_speed_change);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.ForeColor = System.Drawing.Color.SkyBlue;
-            this.label13.Location = new System.Drawing.Point(330, 31);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(56, 13);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "M106 S[n]";
             // 
             // groupBox5
             // 
@@ -404,7 +376,7 @@
             this.groupBox5.Controls.Add(this.label4);
             this.groupBox5.Controls.Add(this.label2);
             this.groupBox5.Enabled = false;
-            this.groupBox5.Location = new System.Drawing.Point(7, 401);
+            this.groupBox5.Location = new System.Drawing.Point(7, 415);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(408, 120);
             this.groupBox5.TabIndex = 17;
@@ -582,23 +554,23 @@
             this.lblReleaseMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblReleaseMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblReleaseMessage.ForeColor = System.Drawing.Color.Silver;
-            this.lblReleaseMessage.Location = new System.Drawing.Point(4, 524);
+            this.lblReleaseMessage.Location = new System.Drawing.Point(4, 541);
             this.lblReleaseMessage.Name = "lblReleaseMessage";
             this.lblReleaseMessage.Size = new System.Drawing.Size(411, 23);
             this.lblReleaseMessage.TabIndex = 19;
             this.lblReleaseMessage.Text = "release";
             this.lblReleaseMessage.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // linkLabel1
+            // lnkConnectDisconnect
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(4, 5);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(47, 13);
-            this.linkLabel1.TabIndex = 21;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Connect";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.lnkConnectDisconnect.AutoSize = true;
+            this.lnkConnectDisconnect.Location = new System.Drawing.Point(4, 5);
+            this.lnkConnectDisconnect.Name = "lnkConnectDisconnect";
+            this.lnkConnectDisconnect.Size = new System.Drawing.Size(47, 13);
+            this.lnkConnectDisconnect.TabIndex = 21;
+            this.lnkConnectDisconnect.TabStop = true;
+            this.lnkConnectDisconnect.Text = "Connect";
+            this.lnkConnectDisconnect.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // lnkPreferences
             // 
@@ -616,7 +588,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lnkPreferences);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.lnkConnectDisconnect);
             this.Controls.Add(this.lblReleaseMessage);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -680,7 +652,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btn_step_5;
         private System.Windows.Forms.Button btn_send_manual_command;
         private System.Windows.Forms.TextBox txt_manual_command;
         private System.Windows.Forms.Label label7;
@@ -691,8 +662,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel lnkConnectDisconnect;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.LinkLabel lnkPreferences;
     }

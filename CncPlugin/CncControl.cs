@@ -15,51 +15,44 @@ namespace CncPlugin
     {
         private IHost host;
 
-        const string release = "CncPlugin - v0.11 - (c) Hellstrand 2014-03-31";
+        const string release = "CncPlugin - v0.12 - (c) Hellstrand 2014-04-06";
 
-        private float step_size = 10;
-
-        private float minstep = 0.1F;
-        private float maxstep = 50;
+        private double step_size;
 
         Boolean spindle_on = false;
 
-        void SetStep(float step)
+        PluginPreferences pref;
+
+        void SetStep(int step)
         {
-            step_size = step;
 
             Color c2 = Color.Gray;
             Color c3 = Color.White;
 
-            if (step_size > maxstep) step_size = maxstep;
-            if (step_size < minstep) step_size = minstep;
-
             ResetStepButtonColor();
 
-            if (step_size == 0.1F)
+            switch (step)
             {
-                btn_step_1.BackColor = c2;
-                btn_step_1.ForeColor = c3;
-            }
-            if (step_size == 1)
-            {
-                btn_step_2.BackColor = c2;
-                btn_step_2.ForeColor = c3;
-            }
-            if (step_size == 5)
-            {
-                btn_step_3.BackColor = c2;
-                btn_step_3.ForeColor = c3;
-            }
-            if (step_size == 10)
-            {
-                btn_step_4.BackColor = c2;
-                btn_step_4.ForeColor = c3;
-            }
-            if (step_size == 50)
-            {
-                btn_step_5.BackColor = c2;
-                btn_step_5.ForeColor = c3;
+                case 1:
+                    btn_step_1.BackColor = c2;
+                    btn_step_1.ForeColor = c3;
+                    step_size = pref.jog_step_1;
+                    break;
+                case 2:
+                    btn_step_2.BackColor = c2;
+                    btn_step_2.ForeColor = c3;
+                    step_size = pref.jog_step_2;
+                    break;
+                case 3:
+                    btn_step_3.BackColor = c2;
+                    btn_step_3.ForeColor = c3;
+                    step_size = pref.jog_step_3;
+                    break;
+                case 4:
+                    btn_step_4.BackColor = c2;
+                    btn_step_4.ForeColor = c3;
+                    step_size = pref.jog_step_4;
+                    break;
             }
         }
 
@@ -67,17 +60,16 @@ namespace CncPlugin
         {
             Color c1 = Control.DefaultBackColor;
             Color c4 = Color.Black;
+
             btn_step_1.BackColor = c1;
             btn_step_2.BackColor = c1;
             btn_step_3.BackColor = c1;
             btn_step_4.BackColor = c1;
-            btn_step_5.BackColor = c1;
 
             btn_step_1.ForeColor = c4;
             btn_step_2.ForeColor = c4;
             btn_step_3.ForeColor = c4;
             btn_step_4.ForeColor = c4;
-            btn_step_5.ForeColor = c4;
 
         }
 
@@ -87,18 +79,18 @@ namespace CncPlugin
             InitializeComponent();
             enableUI(false);
             lblReleaseMessage.Text = release;
+
         }
 
 
-        /// <summary>
-        /// Store reference to host for later use
-        /// </summary>
-        /// <param name="_host">Host instance</param>
         public void Connect(IHost _host)
         {
             host = _host;
             host.Connection.eventConnectionChange += MyeventConnectionChange;
+            host.Connection.eventResponse += Connection_eventResponse;
             ToggleConnection(host.Connection.connector.IsConnected());
+            pref = new PluginPreferences(host);
+            refreshPref();
         }
 
         #region IHostComponent implementation
@@ -118,7 +110,7 @@ namespace CncPlugin
 
         #region Button functions
 
-        void Jog(string axis, float step)
+        void Jog(string axis, double step)
         {
 
             String data = "G1 " + axis + step.ToString().Replace(',', '.');
@@ -136,28 +128,28 @@ namespace CncPlugin
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData == (Keys.Left))
+            if ((int)keyData == (pref.jog_key_x_minus))
             {
                 Jog("X", -step_size);
                 flash_button_when_keypressed(btn_x_minus);
                 return true;
             }
 
-            if (keyData == (Keys.Right))
+            if ((int)keyData == (pref.jog_key_x_plus))
             {
                 Jog("X", +step_size);
                 flash_button_when_keypressed(btn_x_plus);
                 return true;
             }
 
-            if (keyData == (Keys.Down))
+            if ((int)keyData == (pref.jog_key_y_minus))
             {
                 Jog("Y", -step_size);
                 flash_button_when_keypressed(btn_y_minus);
                 return true;
             }
 
-            if (keyData == (Keys.Up))
+            if ((int)keyData == (pref.jog_key_y_plus))
             {
                 Jog("Y", +step_size);
                 flash_button_when_keypressed(btn_y_plus);
@@ -165,7 +157,7 @@ namespace CncPlugin
             }
 
 
-            if (keyData == (Keys.PageDown))
+            if ((int)keyData == (pref.jog_key_z_minus))
             {
                 Jog("Z", -step_size);
                 flash_button_when_keypressed(btn_z_minus);
@@ -173,7 +165,7 @@ namespace CncPlugin
             }
 
 
-            if (keyData == (Keys.PageUp))
+            if ((int)keyData == (pref.jog_key_z_plus))
             {
                 Jog("Z", +step_size);
                 flash_button_when_keypressed(btn_z_plus);
@@ -181,24 +173,31 @@ namespace CncPlugin
             }
 
 
-            if (keyData == (Keys.Divide))
+            if ((int)keyData == pref.step_key_1)
             {
-                SetStep(10);
-                flash_button_when_keypressed(btn_step_4);
+                SetStep(1);
+                flash_button_when_keypressed(btn_step_1);
                 return true;
             }
 
-            if (keyData == (Keys.Multiply))
+            if ((int)keyData == pref.step_key_2)
             {
-                SetStep(1);
+                SetStep(2);
                 flash_button_when_keypressed(btn_step_2);
                 return true;
             }
 
-            if (keyData == (Keys.Subtract))
+            if ((int)keyData == pref.step_key_3)
             {
-                SetStep(0.1F);
-                flash_button_when_keypressed(btn_step_1);
+                SetStep(3);
+                flash_button_when_keypressed(btn_step_3);
+                return true;
+            }
+
+            if ((int)keyData == pref.step_key_4)
+            {
+                SetStep(4);
+                flash_button_when_keypressed(btn_step_4);
                 return true;
             }
 
@@ -207,7 +206,7 @@ namespace CncPlugin
 
         private void CoolControl_Load(object sender, EventArgs e)
         {
-            host.LogInfo("SUB: CoolControl_Load");
+            //host.LogInfo("SUB: CoolControl_Load");
         }
 
         private void btn_probe(object sender, EventArgs e)
@@ -219,7 +218,6 @@ namespace CncPlugin
         private void btn_probe_read_Click(object sender, System.EventArgs e)
         {
             host.Connection.injectManualCommand("G31");
-            MessageBox.Show(host.Connection.x.ToString());
         }
 
         private void vc(object sender, EventArgs e)
@@ -228,29 +226,29 @@ namespace CncPlugin
             btn_step_3.Select(); // select any element to start the ProcessCmdKey event
         }
 
-        private void btn_step_5_Click(object sender, EventArgs e)
-        {
-            SetStep(50);
-        }
-        private void btn_step4_Click(object sender, EventArgs e)
-        {
-            SetStep(10);
-        }
+        ////////////////////////////////////////////////////////////
 
-        private void btn_step_3_Click(object sender, EventArgs e)
-        {
-            SetStep(5);
-        }
-
-        private void btn_step_2_Click(object sender, EventArgs e)
+        private void btn_step_1_Click(object sender, EventArgs e)
         {
             SetStep(1);
         }
 
-        private void btn_step_1_Click(object sender, EventArgs e)
+        private void btn_step_2_Click(object sender, EventArgs e)
         {
-            SetStep(0.1F);
+            SetStep(2);
         }
+
+        private void btn_step_3_Click(object sender, EventArgs e)
+        {
+            SetStep(3);
+        }
+
+        private void btn_step4_Click(object sender, EventArgs e)
+        {
+            SetStep(4);
+        }
+
+        ////////////////////////////////////////////////////////////
 
         private void btn_y_plus_Click(object sender, EventArgs e)
         {
@@ -282,10 +280,7 @@ namespace CncPlugin
             Jog("Z", -step_size);
         }
 
-        public void setproberesult(string probe_measurement)
-        {
-            txtProbeMeasurment.Text = probe_measurement;
-        }
+        ////////////////////////////////////////////////////////////
 
         private void btn_set_probe_Click(object sender, EventArgs e)
         {
@@ -315,7 +310,6 @@ namespace CncPlugin
             label10.Visible = state;
             label11.Visible = state;
             label12.Visible = state;
-            label13.Visible = state;
 
             btn_spindle.BackColor = Color.LightGray;
             btn_spindle.Text = "";
@@ -323,19 +317,19 @@ namespace CncPlugin
 
         void ToggleConnection(Boolean state)
         {
-            linkLabel1.Enabled = true;
+            lnkConnectDisconnect.Enabled = true;
             if (state)
             {
                 enableUI(true);
-                SetStep(step_size);
+                SetStep(3);
                 UpdateSpindleUI();
-                linkLabel1.Text = "Disconnect";
+                lnkConnectDisconnect.Text = "Disconnect";
             }
             else
             {
                 ResetStepButtonColor();
                 enableUI(false);
-                linkLabel1.Text = "Connect";
+                lnkConnectDisconnect.Text = "Connect";
             }
         }
 
@@ -389,7 +383,7 @@ namespace CncPlugin
 
         private void spindle_speed_change(object sender, EventArgs e)
         {
-            if (spindle_on) { host.Connection.injectManualCommand("M106 S" + slide_spindlespeed.Value.ToString()); }
+            if (spindle_on) { host.Connection.injectManualCommand(pref.spindle_pwm.Replace("%p", slide_spindlespeed.Value.ToString())); }
         }
 
         private void btn_spindle_click(object sender, EventArgs e)
@@ -403,13 +397,13 @@ namespace CncPlugin
         {
             if (spindle_on)
             {
-                host.Connection.injectManualCommand("M106 S" + slide_spindlespeed.Value.ToString());
+                host.Connection.injectManualCommand(pref.spindle_pwm.Replace("%p", slide_spindlespeed.Value.ToString()));
                 btn_spindle.BackColor = Color.Red;
                 btn_spindle.Text = "STOP";
             }
             else
             {
-                host.Connection.injectManualCommand("M107");
+                host.Connection.injectManualCommand(pref.spindle_stop);
                 btn_spindle.BackColor = Color.Green;
                 btn_spindle.Text = "START";
             }
@@ -417,7 +411,7 @@ namespace CncPlugin
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            linkLabel1.Enabled = false;
+            lnkConnectDisconnect.Enabled = false;
 
             if (host.Connection.connector.IsConnected())
             {
@@ -432,10 +426,28 @@ namespace CncPlugin
 
         private void lnkPreferences_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form f = new preferences(host);
+            Form f = new preferences(host, pref, this);
             f.Show();
         }
 
+        public void refreshPref()
+        {
+            pref.loadDefaults();
+            btn_step_1.Text = pref.jog_step_1.ToString() + " " + pref.jog_unit;
+            btn_step_2.Text = pref.jog_step_2.ToString() + " " + pref.jog_unit;
+            btn_step_3.Text = pref.jog_step_3.ToString() + " " + pref.jog_unit;
+            btn_step_4.Text = pref.jog_step_4.ToString() + " " + pref.jog_unit;
+        }
+
+
+        private void Connection_eventResponse(string response, ref RepetierHostExtender.basic.LogLevel level)
+        {
+            string h = host.Connection.extract(response, "Z-probe:");
+            if (h != null)
+            {
+                txtProbeMeasurment.Text = h;
+            }
+        }
 
     }
 }
