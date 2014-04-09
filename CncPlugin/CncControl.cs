@@ -15,13 +15,24 @@ namespace CncPlugin
     {
         private IHost host;
 
-        const string release = "CncPlugin - v0.13 - (c) Hellstrand 2014-04-06";
+        const string release = "CncPlugin - v0.14 - (c) Hellstrand 2014-04-09";
 
         private double step_size;
 
         Boolean spindle_on = false;
 
         PluginPreferences pref;
+
+        Hotkey hk1;
+        Hotkey hk2;
+        Hotkey hk3;
+        Hotkey hk4;
+        Hotkey hk5;
+        Hotkey hk6;
+        Hotkey hk7;
+        Hotkey hk8;
+        Hotkey hk9;
+        Hotkey hk10;
 
         void SetStep(int step)
         {
@@ -54,6 +65,9 @@ namespace CncPlugin
                     step_size = pref.jog_step_4;
                     break;
             }
+
+            host.LogInfo("CncPlugin: Change step size to " + step_size.ToString() + " " + pref.jog_unit);
+
         }
 
         private void ResetStepButtonColor()
@@ -70,7 +84,6 @@ namespace CncPlugin
             btn_step_2.ForeColor = c4;
             btn_step_3.ForeColor = c4;
             btn_step_4.ForeColor = c4;
-
         }
 
 
@@ -91,6 +104,49 @@ namespace CncPlugin
             ToggleConnection(host.Connection.connector.IsConnected());
             pref = new PluginPreferences(host);
             refreshPref();
+        }
+
+        private void UnRegisterAllHotkeys()
+        {
+            if (hk1 != null && hk1.Registered) hk1.Unregister();
+            if (hk2 != null && hk2.Registered) hk2.Unregister();
+            if (hk3 != null && hk3.Registered) hk3.Unregister();
+            if (hk4 != null && hk4.Registered) hk4.Unregister();
+            if (hk5 != null && hk5.Registered) hk5.Unregister();
+            if (hk6 != null && hk6.Registered) hk6.Unregister();
+            if (hk7 != null && hk7.Registered) hk7.Unregister();
+            if (hk8 != null && hk8.Registered) hk8.Unregister();
+            if (hk9 != null && hk9.Registered) hk9.Unregister();
+            if (hk10 != null && hk10.Registered) hk10.Unregister();
+        }
+
+        private void RegisterAllHotkeys()
+        {
+            hk1 = RegisterOneKey((Keys)pref.jog_key_x_minus);
+            hk2 = RegisterOneKey((Keys)pref.jog_key_x_plus);
+            hk3 = RegisterOneKey((Keys)pref.jog_key_y_minus);
+            hk4 = RegisterOneKey((Keys)pref.jog_key_y_plus);
+            hk5 = RegisterOneKey((Keys)pref.jog_key_z_minus);
+            hk6 = RegisterOneKey((Keys)pref.jog_key_z_plus);
+            hk7 = RegisterOneKey((Keys)pref.step_key_1);
+            hk8 = RegisterOneKey((Keys)pref.step_key_2);
+            hk9 = RegisterOneKey((Keys)pref.step_key_3);
+            hk10 = RegisterOneKey((Keys)pref.step_key_4);
+        }
+
+        private Hotkey RegisterOneKey(Keys k)
+        {
+            Hotkey hk = new Hotkey();
+            hk.KeyCode = k;
+            hk.Pressed += myglobal;
+            hk.Register(this);
+            return hk;
+        }
+
+        private void myglobal(object sender, HandledEventArgs e)
+        {
+            Message msg = new Message();
+            ProcessCmdKey(ref msg, ((Hotkey)sender).KeyCode);
         }
 
         #region IHostComponent implementation
@@ -128,79 +184,83 @@ namespace CncPlugin
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if ((int)keyData == (pref.jog_key_x_minus))
+
+            if (host.Connection.connector.IsConnected())
             {
-                Jog("X", -step_size);
-                flash_button_when_keypressed(btn_x_minus);
-                return true;
+
+                if ((int)keyData == (pref.jog_key_x_minus))
+                {
+                    Jog("X", -step_size);
+                    flash_button_when_keypressed(btn_x_minus);
+                    return true;
+                }
+
+                if ((int)keyData == (pref.jog_key_x_plus))
+                {
+                    Jog("X", +step_size);
+                    flash_button_when_keypressed(btn_x_plus);
+                    return true;
+                }
+
+                if ((int)keyData == (pref.jog_key_y_minus))
+                {
+                    Jog("Y", -step_size);
+                    flash_button_when_keypressed(btn_y_minus);
+                    return true;
+                }
+
+                if ((int)keyData == (pref.jog_key_y_plus))
+                {
+                    Jog("Y", +step_size);
+                    flash_button_when_keypressed(btn_y_plus);
+                    return true;
+                }
+
+
+                if ((int)keyData == (pref.jog_key_z_minus))
+                {
+                    Jog("Z", -step_size);
+                    flash_button_when_keypressed(btn_z_minus);
+                    return true;
+                }
+
+
+                if ((int)keyData == (pref.jog_key_z_plus))
+                {
+                    Jog("Z", +step_size);
+                    flash_button_when_keypressed(btn_z_plus);
+                    return true;
+                }
+
+
+                if ((int)keyData == pref.step_key_1)
+                {
+                    SetStep(1);
+                    flash_button_when_keypressed(btn_step_1);
+                    return true;
+                }
+
+                if ((int)keyData == pref.step_key_2)
+                {
+                    SetStep(2);
+                    flash_button_when_keypressed(btn_step_2);
+                    return true;
+                }
+
+                if ((int)keyData == pref.step_key_3)
+                {
+                    SetStep(3);
+                    flash_button_when_keypressed(btn_step_3);
+                    return true;
+                }
+
+                if ((int)keyData == pref.step_key_4)
+                {
+                    SetStep(4);
+                    flash_button_when_keypressed(btn_step_4);
+                    return true;
+                }
             }
-
-            if ((int)keyData == (pref.jog_key_x_plus))
-            {
-                Jog("X", +step_size);
-                flash_button_when_keypressed(btn_x_plus);
-                return true;
-            }
-
-            if ((int)keyData == (pref.jog_key_y_minus))
-            {
-                Jog("Y", -step_size);
-                flash_button_when_keypressed(btn_y_minus);
-                return true;
-            }
-
-            if ((int)keyData == (pref.jog_key_y_plus))
-            {
-                Jog("Y", +step_size);
-                flash_button_when_keypressed(btn_y_plus);
-                return true;
-            }
-
-
-            if ((int)keyData == (pref.jog_key_z_minus))
-            {
-                Jog("Z", -step_size);
-                flash_button_when_keypressed(btn_z_minus);
-                return true;
-            }
-
-
-            if ((int)keyData == (pref.jog_key_z_plus))
-            {
-                Jog("Z", +step_size);
-                flash_button_when_keypressed(btn_z_plus);
-                return true;
-            }
-
-
-            if ((int)keyData == pref.step_key_1)
-            {
-                SetStep(1);
-                flash_button_when_keypressed(btn_step_1);
-                return true;
-            }
-
-            if ((int)keyData == pref.step_key_2)
-            {
-                SetStep(2);
-                flash_button_when_keypressed(btn_step_2);
-                return true;
-            }
-
-            if ((int)keyData == pref.step_key_3)
-            {
-                SetStep(3);
-                flash_button_when_keypressed(btn_step_3);
-                return true;
-            }
-
-            if ((int)keyData == pref.step_key_4)
-            {
-                SetStep(4);
-                flash_button_when_keypressed(btn_step_4);
-                return true;
-            }
-
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
@@ -220,7 +280,7 @@ namespace CncPlugin
             host.Connection.injectManualCommand("G31");
         }
 
-        private void vc(object sender, EventArgs e)
+        private void VisibleChange(object sender, EventArgs e)
         {
             // every time the tab is selected
             btn_step_3.Select(); // select any element to start the ProcessCmdKey event
@@ -324,6 +384,7 @@ namespace CncPlugin
             lnkConnectDisconnect.Enabled = true;
             if (state)
             {
+                if (!host.IsMono) { RegisterAllHotkeys(); }
                 enableUI(true);
                 SetStep(3);
                 UpdateSpindleUI();
@@ -331,6 +392,7 @@ namespace CncPlugin
             }
             else
             {
+                if (!host.IsMono) { UnRegisterAllHotkeys(); }
                 ResetStepButtonColor();
                 enableUI(false);
                 lnkConnectDisconnect.Text = "Connect";
@@ -441,6 +503,15 @@ namespace CncPlugin
             btn_step_2.Text = pref.jog_step_2.ToString() + " " + pref.jog_unit;
             btn_step_3.Text = pref.jog_step_3.ToString() + " " + pref.jog_unit;
             btn_step_4.Text = pref.jog_step_4.ToString() + " " + pref.jog_unit;
+
+            if (!host.IsMono)
+            {
+                UnRegisterAllHotkeys();
+                if (pref.globalkeys)
+                {
+                    if (host.Connection.connector.IsConnected()) { RegisterAllHotkeys(); }
+                }
+            }
         }
 
 

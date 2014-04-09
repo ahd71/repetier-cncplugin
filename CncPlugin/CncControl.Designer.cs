@@ -59,8 +59,11 @@
             this.btn_spindle = new System.Windows.Forms.Button();
             this.slide_spindlespeed = new System.Windows.Forms.TrackBar();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.lblPosZ = new System.Windows.Forms.Label();
+            this.lblPosY = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.lblPosX = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btn_send_manual_command = new System.Windows.Forms.Button();
             this.txt_manual_command = new System.Windows.Forms.TextBox();
@@ -80,9 +83,6 @@
             this.lblReleaseMessage = new System.Windows.Forms.Label();
             this.lnkConnectDisconnect = new System.Windows.Forms.LinkLabel();
             this.lnkPreferences = new System.Windows.Forms.LinkLabel();
-            this.lblPosX = new System.Windows.Forms.Label();
-            this.lblPosZ = new System.Windows.Forms.Label();
-            this.lblPosY = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -97,7 +97,7 @@
             this.button1.Location = new System.Drawing.Point(21, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 20);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 10;
             this.button1.Text = "Probe";
             this.button1.UseMnemonic = false;
             this.button1.UseVisualStyleBackColor = true;
@@ -108,7 +108,7 @@
             this.txtProbeMeasurment.Location = new System.Drawing.Point(102, 25);
             this.txtProbeMeasurment.Name = "txtProbeMeasurment";
             this.txtProbeMeasurment.Size = new System.Drawing.Size(61, 20);
-            this.txtProbeMeasurment.TabIndex = 12;
+            this.txtProbeMeasurment.TabIndex = 11;
             this.txtProbeMeasurment.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btn_probe_read
@@ -116,7 +116,7 @@
             this.btn_probe_read.Location = new System.Drawing.Point(300, 25);
             this.btn_probe_read.Name = "btn_probe_read";
             this.btn_probe_read.Size = new System.Drawing.Size(92, 20);
-            this.btn_probe_read.TabIndex = 1;
+            this.btn_probe_read.TabIndex = 13;
             this.btn_probe_read.Text = "Read";
             this.btn_probe_read.UseMnemonic = false;
             this.btn_probe_read.UseVisualStyleBackColor = true;
@@ -145,7 +145,7 @@
             this.btn_set_probe.Location = new System.Drawing.Point(204, 25);
             this.btn_set_probe.Name = "btn_set_probe";
             this.btn_set_probe.Size = new System.Drawing.Size(90, 20);
-            this.btn_set_probe.TabIndex = 14;
+            this.btn_set_probe.TabIndex = 12;
             this.btn_set_probe.Text = "Set ref";
             this.btn_set_probe.UseVisualStyleBackColor = true;
             this.btn_set_probe.Click += new System.EventHandler(this.btn_set_probe_Click);
@@ -208,7 +208,7 @@
             this.btn_step_3.Location = new System.Drawing.Point(13, 136);
             this.btn_step_3.Name = "btn_step_3";
             this.btn_step_3.Size = new System.Drawing.Size(98, 31);
-            this.btn_step_3.TabIndex = 14;
+            this.btn_step_3.TabIndex = 8;
             this.btn_step_3.UseVisualStyleBackColor = false;
             this.btn_step_3.Click += new System.EventHandler(this.btn_step_3_Click);
             // 
@@ -217,7 +217,7 @@
             this.btn_step_4.Location = new System.Drawing.Point(13, 186);
             this.btn_step_4.Name = "btn_step_4";
             this.btn_step_4.Size = new System.Drawing.Size(98, 31);
-            this.btn_step_4.TabIndex = 13;
+            this.btn_step_4.TabIndex = 9;
             this.btn_step_4.UseVisualStyleBackColor = true;
             this.btn_step_4.Click += new System.EventHandler(this.btn_step4_Click);
             // 
@@ -227,7 +227,7 @@
             this.btn_step_1.Location = new System.Drawing.Point(13, 36);
             this.btn_step_1.Name = "btn_step_1";
             this.btn_step_1.Size = new System.Drawing.Size(98, 31);
-            this.btn_step_1.TabIndex = 12;
+            this.btn_step_1.TabIndex = 6;
             this.btn_step_1.UseVisualStyleBackColor = false;
             this.btn_step_1.Click += new System.EventHandler(this.btn_step_1_Click);
             // 
@@ -237,7 +237,7 @@
             this.btn_step_2.Location = new System.Drawing.Point(13, 86);
             this.btn_step_2.Name = "btn_step_2";
             this.btn_step_2.Size = new System.Drawing.Size(98, 31);
-            this.btn_step_2.TabIndex = 11;
+            this.btn_step_2.TabIndex = 7;
             this.btn_step_2.UseVisualStyleBackColor = false;
             this.btn_step_2.Click += new System.EventHandler(this.btn_step_2_Click);
             // 
@@ -262,7 +262,7 @@
             this.btn_z_minus.Location = new System.Drawing.Point(205, 127);
             this.btn_z_minus.Name = "btn_z_minus";
             this.btn_z_minus.Size = new System.Drawing.Size(34, 34);
-            this.btn_z_minus.TabIndex = 12;
+            this.btn_z_minus.TabIndex = 5;
             this.btn_z_minus.Text = "-Z";
             this.btn_z_minus.UseVisualStyleBackColor = true;
             this.btn_z_minus.Click += new System.EventHandler(this.btn_z_minus_Click);
@@ -272,7 +272,7 @@
             this.btn_z_plus.Location = new System.Drawing.Point(205, 66);
             this.btn_z_plus.Name = "btn_z_plus";
             this.btn_z_plus.Size = new System.Drawing.Size(34, 34);
-            this.btn_z_plus.TabIndex = 13;
+            this.btn_z_plus.TabIndex = 4;
             this.btn_z_plus.Text = "+Z";
             this.btn_z_plus.UseVisualStyleBackColor = true;
             this.btn_z_plus.Click += new System.EventHandler(this.btn_z_plus_Click);
@@ -282,7 +282,7 @@
             this.btn_x_minus.Location = new System.Drawing.Point(45, 97);
             this.btn_x_minus.Name = "btn_x_minus";
             this.btn_x_minus.Size = new System.Drawing.Size(34, 34);
-            this.btn_x_minus.TabIndex = 14;
+            this.btn_x_minus.TabIndex = 0;
             this.btn_x_minus.Text = "-X";
             this.btn_x_minus.UseVisualStyleBackColor = true;
             this.btn_x_minus.Click += new System.EventHandler(this.btn_x_minus_Click);
@@ -292,7 +292,7 @@
             this.btn_x_plus.Location = new System.Drawing.Point(125, 97);
             this.btn_x_plus.Name = "btn_x_plus";
             this.btn_x_plus.Size = new System.Drawing.Size(34, 34);
-            this.btn_x_plus.TabIndex = 15;
+            this.btn_x_plus.TabIndex = 3;
             this.btn_x_plus.Text = "+X";
             this.btn_x_plus.UseVisualStyleBackColor = true;
             this.btn_x_plus.Click += new System.EventHandler(this.btn_x_plus_Click);
@@ -302,7 +302,7 @@
             this.btn_y_minus.Location = new System.Drawing.Point(85, 135);
             this.btn_y_minus.Name = "btn_y_minus";
             this.btn_y_minus.Size = new System.Drawing.Size(34, 34);
-            this.btn_y_minus.TabIndex = 16;
+            this.btn_y_minus.TabIndex = 2;
             this.btn_y_minus.Text = "-Y";
             this.btn_y_minus.UseVisualStyleBackColor = true;
             this.btn_y_minus.Click += new System.EventHandler(this.btn_y_minus_Click);
@@ -312,7 +312,7 @@
             this.btn_y_plus.Location = new System.Drawing.Point(85, 55);
             this.btn_y_plus.Name = "btn_y_plus";
             this.btn_y_plus.Size = new System.Drawing.Size(34, 34);
-            this.btn_y_plus.TabIndex = 17;
+            this.btn_y_plus.TabIndex = 1;
             this.btn_y_plus.Text = "+Y";
             this.btn_y_plus.UseVisualStyleBackColor = true;
             this.btn_y_plus.Click += new System.EventHandler(this.btn_y_plus_Click);
@@ -375,7 +375,7 @@
             this.btn_spindle.Location = new System.Drawing.Point(15, 26);
             this.btn_spindle.Name = "btn_spindle";
             this.btn_spindle.Size = new System.Drawing.Size(92, 43);
-            this.btn_spindle.TabIndex = 8;
+            this.btn_spindle.TabIndex = 14;
             this.btn_spindle.UseMnemonic = false;
             this.btn_spindle.UseVisualStyleBackColor = true;
             this.btn_spindle.Click += new System.EventHandler(this.btn_spindle_click);
@@ -386,7 +386,7 @@
             this.slide_spindlespeed.Maximum = 255;
             this.slide_spindlespeed.Name = "slide_spindlespeed";
             this.slide_spindlespeed.Size = new System.Drawing.Size(267, 45);
-            this.slide_spindlespeed.TabIndex = 7;
+            this.slide_spindlespeed.TabIndex = 15;
             this.slide_spindlespeed.TickFrequency = 16;
             this.slide_spindlespeed.Value = 128;
             this.slide_spindlespeed.ValueChanged += new System.EventHandler(this.spindle_speed_change);
@@ -422,6 +422,26 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "G Code";
             // 
+            // lblPosZ
+            // 
+            this.lblPosZ.ForeColor = System.Drawing.Color.Green;
+            this.lblPosZ.Location = new System.Drawing.Point(183, 21);
+            this.lblPosZ.Name = "lblPosZ";
+            this.lblPosZ.Size = new System.Drawing.Size(52, 13);
+            this.lblPosZ.TabIndex = 23;
+            this.lblPosZ.Text = "-";
+            this.lblPosZ.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblPosY
+            // 
+            this.lblPosY.ForeColor = System.Drawing.Color.Green;
+            this.lblPosY.Location = new System.Drawing.Point(109, 21);
+            this.lblPosY.Name = "lblPosY";
+            this.lblPosY.Size = new System.Drawing.Size(52, 13);
+            this.lblPosY.TabIndex = 23;
+            this.lblPosY.Text = "-";
+            this.lblPosY.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -442,6 +462,16 @@
             this.label8.Text = "Y";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // lblPosX
+            // 
+            this.lblPosX.ForeColor = System.Drawing.Color.Green;
+            this.lblPosX.Location = new System.Drawing.Point(35, 21);
+            this.lblPosX.Name = "lblPosX";
+            this.lblPosX.Size = new System.Drawing.Size(52, 13);
+            this.lblPosX.TabIndex = 23;
+            this.lblPosX.Text = "-";
+            this.lblPosX.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -457,7 +487,7 @@
             this.btn_send_manual_command.Location = new System.Drawing.Point(249, 88);
             this.btn_send_manual_command.Name = "btn_send_manual_command";
             this.btn_send_manual_command.Size = new System.Drawing.Size(75, 23);
-            this.btn_send_manual_command.TabIndex = 11;
+            this.btn_send_manual_command.TabIndex = 25;
             this.btn_send_manual_command.Text = "Send";
             this.btn_send_manual_command.UseVisualStyleBackColor = true;
             this.btn_send_manual_command.Click += new System.EventHandler(this.btnSendManual);
@@ -467,7 +497,7 @@
             this.txt_manual_command.Location = new System.Drawing.Point(35, 90);
             this.txt_manual_command.Name = "txt_manual_command";
             this.txt_manual_command.Size = new System.Drawing.Size(200, 20);
-            this.txt_manual_command.TabIndex = 10;
+            this.txt_manual_command.TabIndex = 24;
             this.txt_manual_command.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Command_KeyPress);
             // 
             // button11
@@ -475,7 +505,7 @@
             this.button11.Location = new System.Drawing.Point(249, 62);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(75, 23);
-            this.button11.TabIndex = 9;
+            this.button11.TabIndex = 23;
             this.button11.Text = "Set ref";
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.btnSendG92);
@@ -485,7 +515,7 @@
             this.txt_g92_x.Location = new System.Drawing.Point(35, 65);
             this.txt_g92_x.Name = "txt_g92_x";
             this.txt_g92_x.Size = new System.Drawing.Size(52, 20);
-            this.txt_g92_x.TabIndex = 8;
+            this.txt_g92_x.TabIndex = 20;
             this.txt_g92_x.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_g92_y
@@ -493,7 +523,7 @@
             this.txt_g92_y.Location = new System.Drawing.Point(109, 64);
             this.txt_g92_y.Name = "txt_g92_y";
             this.txt_g92_y.Size = new System.Drawing.Size(52, 20);
-            this.txt_g92_y.TabIndex = 7;
+            this.txt_g92_y.TabIndex = 21;
             this.txt_g92_y.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_g92_z
@@ -501,7 +531,7 @@
             this.txt_g92_z.Location = new System.Drawing.Point(183, 64);
             this.txt_g92_z.Name = "txt_g92_z";
             this.txt_g92_z.Size = new System.Drawing.Size(52, 20);
-            this.txt_g92_z.TabIndex = 6;
+            this.txt_g92_z.TabIndex = 22;
             this.txt_g92_z.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
@@ -519,7 +549,7 @@
             this.button10.Location = new System.Drawing.Point(249, 35);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 4;
+            this.button10.TabIndex = 19;
             this.button10.Text = "Move";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.btnSendG1);
@@ -529,7 +559,7 @@
             this.txt_g0_z.Location = new System.Drawing.Point(183, 37);
             this.txt_g0_z.Name = "txt_g0_z";
             this.txt_g0_z.Size = new System.Drawing.Size(52, 20);
-            this.txt_g0_z.TabIndex = 3;
+            this.txt_g0_z.TabIndex = 18;
             this.txt_g0_z.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_g0_y
@@ -537,7 +567,7 @@
             this.txt_g0_y.Location = new System.Drawing.Point(109, 37);
             this.txt_g0_y.Name = "txt_g0_y";
             this.txt_g0_y.Size = new System.Drawing.Size(52, 20);
-            this.txt_g0_y.TabIndex = 2;
+            this.txt_g0_y.TabIndex = 17;
             this.txt_g0_y.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_g0_x
@@ -545,7 +575,7 @@
             this.txt_g0_x.Location = new System.Drawing.Point(35, 37);
             this.txt_g0_x.Name = "txt_g0_x";
             this.txt_g0_x.Size = new System.Drawing.Size(52, 20);
-            this.txt_g0_x.TabIndex = 1;
+            this.txt_g0_x.TabIndex = 16;
             this.txt_g0_x.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
@@ -622,36 +652,6 @@
             this.lnkPreferences.Text = "Preferences";
             this.lnkPreferences.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkPreferences_LinkClicked);
             // 
-            // lblPosX
-            // 
-            this.lblPosX.ForeColor = System.Drawing.Color.Green;
-            this.lblPosX.Location = new System.Drawing.Point(35, 21);
-            this.lblPosX.Name = "lblPosX";
-            this.lblPosX.Size = new System.Drawing.Size(52, 13);
-            this.lblPosX.TabIndex = 23;
-            this.lblPosX.Text = "-";
-            this.lblPosX.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblPosZ
-            // 
-            this.lblPosZ.ForeColor = System.Drawing.Color.Green;
-            this.lblPosZ.Location = new System.Drawing.Point(183, 21);
-            this.lblPosZ.Name = "lblPosZ";
-            this.lblPosZ.Size = new System.Drawing.Size(52, 13);
-            this.lblPosZ.TabIndex = 23;
-            this.lblPosZ.Text = "-";
-            this.lblPosZ.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblPosY
-            // 
-            this.lblPosY.ForeColor = System.Drawing.Color.Green;
-            this.lblPosY.Location = new System.Drawing.Point(109, 21);
-            this.lblPosY.Name = "lblPosY";
-            this.lblPosY.Size = new System.Drawing.Size(52, 13);
-            this.lblPosY.TabIndex = 23;
-            this.lblPosY.Text = "-";
-            this.lblPosY.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // CncControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -667,7 +667,7 @@
             this.Name = "CncControl";
             this.Size = new System.Drawing.Size(451, 580);
             this.Load += new System.EventHandler(this.CoolControl_Load);
-            this.VisibleChanged += new System.EventHandler(this.vc);
+            this.VisibleChanged += new System.EventHandler(this.VisibleChange);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

@@ -25,7 +25,7 @@ namespace CncPlugin
     {
         private IHost host;
         private PluginPreferences pref;
-        private CncControl _cc; 
+        private CncControl _cc;
 
         public preferences(IHost h, PluginPreferences _pref, CncControl cc)
         {
@@ -66,11 +66,18 @@ namespace CncPlugin
             txt_spindle_pwm.Text = pref.spindle_pwm;
 
             if (pref.jog_unit == "mm") { rb_unit_mm.Checked = true; } else { rb_unit_inch.Checked = true; }
+
+            cb_globalkeys.Checked = pref.globalkeys;
         }
 
         private void preferences_Load(object sender, EventArgs e)
         {
             loadDefault();
+            if (host.IsMono)
+            {
+                groupWindows.Enabled = false;
+                cb_globalkeys.Checked = false;
+            }
         }
 
 
@@ -104,8 +111,9 @@ namespace CncPlugin
             pref.spindle_pwm = txt_spindle_pwm.Text;
 
             if (rb_unit_mm.Checked == true) { pref.jog_unit = "mm"; } else { pref.jog_unit = "inch"; }
+            pref.globalkeys = cb_globalkeys.Checked;
 
-            host.LogMessage("CncPlugin preferences saved");
+            host.LogMessage("CncPlugin: Preferences saved");
             pref.save();
             _cc.refreshPref();
         }
@@ -115,7 +123,7 @@ namespace CncPlugin
             if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back) || e.KeyChar == Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator))) e.Handled = true;
         }
 
-  
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             IRegMemoryFolder reg = host.GetRegistryFolder("CncPlugin");

@@ -34,6 +34,8 @@ namespace CncPlugin
 
         public string jog_unit;
 
+        public bool globalkeys;
+
 
         public PluginPreferences(IHost h)
         {
@@ -66,7 +68,8 @@ namespace CncPlugin
             spindle_stop = reg.GetString("spindle_stop", "M107");
             spindle_pwm = reg.GetString("spindle_pwm", "M106 S%p");
 
-            jog_unit = reg.GetString("jog_unit", "mm"); ;
+            jog_unit = reg.GetString("jog_unit", "mm");
+            globalkeys = reg.GetBool("globalkeys", false);
 
         }
 
@@ -98,6 +101,8 @@ namespace CncPlugin
             reg.SetString("spindle_pwm", spindle_pwm);
 
             reg.SetString("jog_unit", jog_unit);
+            
+            reg.SetBool("globalkeys", globalkeys);
 
         }
     }

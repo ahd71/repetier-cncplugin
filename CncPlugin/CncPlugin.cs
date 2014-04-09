@@ -34,7 +34,7 @@ namespace CncPlugin
             
 
             // Add some text in the about dialog
-            host.AboutDialog.RegisterThirdParty("CNC", "\r\n\r\nCNC control by Anders Hellstrand ");
+            host.AboutDialog.RegisterThirdParty("CncPlugin", "\r\n\r\nCNC control plugin by Anders Hellstrand");
         }
         /// <summary>
         /// Last round of plugin calls. All controls exist, so now you may modify them to your wishes.

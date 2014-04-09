@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hotkey.cs" />
     <Compile Include="PluginPreferences.cs" />
     <Compile Include="CncControl.cs">
       <SubType>UserControl</SubType>
