@@ -162,7 +162,11 @@ namespace CncPlugin
         // Return the UserControl.
         public Control ComponentControl { get { return this; } }
 
-        #endregion
+		// Handle the new interface functions in repetier host 1.0.3
+		public Control ComponentControl { get { return this; } }
+	    public ThreeDView Associated3DView { get { return null; } }
+        
+		#endregion
 
         #region Button functions
 
