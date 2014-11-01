@@ -31,8 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="RepetierHostExtender">
-      <HintPath>C:\Program Files\Repetier-Host\RepetierHostExtender.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\Program Files\Repetier-Host\RepetierHostExtender.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RepetierHostExtender.interfaces;
+using RepetierHostExtender.geom;
 
 namespace CncPlugin
 {
@@ -15,7 +16,7 @@ namespace CncPlugin
     {
         private IHost host;
 
-        const string release = "CncPlugin - v0.14 - (c) Hellstrand 2014-04-09";
+        const string release = "CncPlugin - v0.15 - (c) Hellstrand 2014-11-01";
 
         private double step_size;
 
@@ -161,6 +162,13 @@ namespace CncPlugin
         public PreferredComponentPositions PreferredPosition { get { return PreferredComponentPositions.SIDEBAR; } }
         // Return the UserControl.
         public Control ComponentControl { get { return this; } }
+
+        public ThreeDView Associated3DView { get { return null; } }
+
+        public void ComponentActivated()
+        {
+            //throw new NotImplementedException();
+        }
 
         #endregion
 
