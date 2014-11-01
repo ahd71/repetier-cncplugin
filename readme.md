@@ -35,6 +35,7 @@ Working with CNC machines require slightly different user interface for frequent
 See the [issue tracker](https://github.com/ahd71/repetier-cncplugin/issues).
 
 ## Releases
+* 0.15 / 2014-11-01 - Fixed two compatibility issue introduced with Repetier 1.03 and 1.06 due to changes in the plugin interfaces
 * 0.14 / 2014-04-09 - Global hotkeys in Windows (makes them work outside the CNC tab), see issue #7 for more details
 * 0.13 / 2014-04-06 - Presentation of current position from the analyzer object
 * 0.12 / 2014-04-06 - User preferences for short cut keys and step size
