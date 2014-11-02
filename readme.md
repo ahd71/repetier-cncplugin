@@ -31,6 +31,9 @@ Working with CNC machines require slightly different user interface for frequent
 ## Keyboard short cuts
 * Default configured for jog via arrow keys and PgUp/PgDn. Fully configurable via key codes defined in http://msdn.microsoft.com/library/windows/apps/windows.system.virtualkey
 
+## FAQ
+* Error "Could not load file or assembly 'CncPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. Operation is not supported. (Exception from HRESULT: 0x80131515)". Windows by default prevents downloaded dll's to be used. See the install instructions above how to unblock the dll.
+
 ## Planned features / To-do
 See the [issue tracker](https://github.com/ahd71/repetier-cncplugin/issues).
 
