@@ -10,6 +10,8 @@ Working with CNC machines require slightly different user interface for frequent
 ### Preference settings
 <img src="/CncPlugin/Screenshots/preferences-2014-04-06.PNG">
 
+## Licence
+Released under Creative Common with attribution 4.0 (CC BY). In short that allows you to fork and remix as long as a reference to the original source/author is mentioned - preferable by linking to https://github.com/ahd71/repetier-cncplugin
 
 ## Install
 (Only windows tested so far but plugins are supposed to work in linux too)
