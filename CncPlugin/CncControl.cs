@@ -34,6 +34,7 @@ namespace CncPlugin
         Hotkey hk8;
         Hotkey hk9;
         Hotkey hk10;
+        Hotkey hk11;
 
         void SetStep(int step)
         {
@@ -69,6 +70,14 @@ namespace CncPlugin
 
             host.LogInfo("CncPlugin: Change step size to " + step_size.ToString() + " " + pref.jog_unit);
 
+        }
+
+        void StopMotor()
+        {
+            if (host.Connection.connector.IsConnected())
+            {
+                host.Connection.injectManualCommand("M84");
+            }
         }
 
         private void ResetStepButtonColor()
@@ -119,6 +128,7 @@ namespace CncPlugin
             if (hk8 != null && hk8.Registered) hk8.Unregister();
             if (hk9 != null && hk9.Registered) hk9.Unregister();
             if (hk10 != null && hk10.Registered) hk10.Unregister();
+            if (hk11 != null && hk11.Registered) hk11.Unregister();
         }
 
         private void RegisterAllHotkeys()
@@ -133,6 +143,7 @@ namespace CncPlugin
             hk8 = RegisterOneKey((Keys)pref.step_key_2);
             hk9 = RegisterOneKey((Keys)pref.step_key_3);
             hk10 = RegisterOneKey((Keys)pref.step_key_4);
+            hk11 = RegisterOneKey((Keys)pref.stop_key);
         }
 
         private Hotkey RegisterOneKey(Keys k)
@@ -266,6 +277,12 @@ namespace CncPlugin
                 {
                     SetStep(4);
                     flash_button_when_keypressed(btn_step_4);
+                    return true;
+                }
+                if ((int)keyData == pref.stop_key)
+                {
+                    StopMotor();
+                    flash_button_when_keypressed(btn_stop);
                     return true;
                 }
             }
@@ -537,6 +554,11 @@ namespace CncPlugin
                 txtProbeMeasurment.Text = h;
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            StopMotor();
         }
 
     }
