@@ -167,7 +167,18 @@ namespace CncPlugin
 
         public void ComponentActivated()
         {
-            //throw new NotImplementedException();
+            if (host.Connection.connector.IsConnected() && !host.IsMono)
+            {
+                RegisterAllHotkeys();
+            }
+        }
+
+        public void ComponentDeactivated()
+        {
+            if (!host.IsMono)
+            {
+                UnRegisterAllHotkeys();
+            }
         }
 
         #endregion
@@ -392,7 +403,6 @@ namespace CncPlugin
             lnkConnectDisconnect.Enabled = true;
             if (state)
             {
-                if (!host.IsMono) { RegisterAllHotkeys(); }
                 enableUI(true);
                 SetStep(3);
                 UpdateSpindleUI();
