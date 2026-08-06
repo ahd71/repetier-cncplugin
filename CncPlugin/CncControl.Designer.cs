@@ -83,6 +83,7 @@
             this.lblReleaseMessage = new System.Windows.Forms.Label();
             this.lnkConnectDisconnect = new System.Windows.Forms.LinkLabel();
             this.lnkPreferences = new System.Windows.Forms.LinkLabel();
+            this.btn_stop = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -197,7 +198,7 @@
             this.groupBox2.Controls.Add(this.btn_step_2);
             this.groupBox2.Location = new System.Drawing.Point(291, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(124, 244);
+            this.groupBox2.Size = new System.Drawing.Size(124, 210);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Distance";
@@ -205,7 +206,7 @@
             // btn_step_3
             // 
             this.btn_step_3.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_step_3.Location = new System.Drawing.Point(13, 136);
+            this.btn_step_3.Location = new System.Drawing.Point(13, 122);
             this.btn_step_3.Name = "btn_step_3";
             this.btn_step_3.Size = new System.Drawing.Size(98, 31);
             this.btn_step_3.TabIndex = 8;
@@ -214,7 +215,7 @@
             // 
             // btn_step_4
             // 
-            this.btn_step_4.Location = new System.Drawing.Point(13, 186);
+            this.btn_step_4.Location = new System.Drawing.Point(13, 166);
             this.btn_step_4.Name = "btn_step_4";
             this.btn_step_4.Size = new System.Drawing.Size(98, 31);
             this.btn_step_4.TabIndex = 9;
@@ -234,7 +235,7 @@
             // btn_step_2
             // 
             this.btn_step_2.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_step_2.Location = new System.Drawing.Point(13, 86);
+            this.btn_step_2.Location = new System.Drawing.Point(13, 79);
             this.btn_step_2.Name = "btn_step_2";
             this.btn_step_2.Size = new System.Drawing.Size(98, 31);
             this.btn_step_2.TabIndex = 7;
@@ -652,10 +653,21 @@
             this.lnkPreferences.Text = "Preferences";
             this.lnkPreferences.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkPreferences_LinkClicked);
             // 
+            // btn_stop
+            // 
+            this.btn_stop.Location = new System.Drawing.Point(304, 221);
+            this.btn_stop.Name = "btn_stop";
+            this.btn_stop.Size = new System.Drawing.Size(98, 31);
+            this.btn_stop.TabIndex = 10;
+            this.btn_stop.Text = "Stop motor";
+            this.btn_stop.UseVisualStyleBackColor = true;
+            this.btn_stop.Click += new System.EventHandler(this.button2_Click);
+            // 
             // CncControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_stop);
             this.Controls.Add(this.lnkPreferences);
             this.Controls.Add(this.lnkConnectDisconnect);
             this.Controls.Add(this.lblReleaseMessage);
@@ -740,5 +752,6 @@
         private System.Windows.Forms.Label lblPosZ;
         private System.Windows.Forms.Label lblPosY;
         private System.Windows.Forms.Label lblPosX;
+        private System.Windows.Forms.Button btn_stop;
     }
 }

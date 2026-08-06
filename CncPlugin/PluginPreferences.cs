@@ -23,6 +23,8 @@ namespace CncPlugin
         public int step_key_3;
         public int step_key_4;
 
+        public int stop_key;
+
         public double jog_step_1;
         public double jog_step_2;
         public double jog_step_3;
@@ -64,6 +66,8 @@ namespace CncPlugin
             step_key_3 = reg.GetInt("step_key_3", 122); // F11
             step_key_4 = reg.GetInt("step_key_4", 123); // F12
 
+            stop_key = reg.GetInt("stop_key", 36); // HOME
+
             spindle_start = reg.GetString("spindle_start", "M106 S%p");
             spindle_stop = reg.GetString("spindle_stop", "M107");
             spindle_pwm = reg.GetString("spindle_pwm", "M106 S%p");
@@ -96,6 +100,9 @@ namespace CncPlugin
             reg.SetInt("step_key_3", step_key_3);
             reg.SetInt("step_key_4", step_key_4);
 
+            reg.SetInt("stop_key", stop_key);
+
+            
             reg.SetString("spindle_start", spindle_start);
             reg.SetString("spindle_stop", spindle_stop);
             reg.SetString("spindle_pwm", spindle_pwm);

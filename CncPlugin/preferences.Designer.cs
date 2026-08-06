@@ -65,6 +65,8 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupWindows = new System.Windows.Forms.GroupBox();
             this.cb_globalkeys = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt_stop = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.step_size.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -128,7 +130,7 @@
             // 
             // txt_step_4
             // 
-            this.txt_step_4.Location = new System.Drawing.Point(20, 129);
+            this.txt_step_4.Location = new System.Drawing.Point(20, 111);
             this.txt_step_4.Name = "txt_step_4";
             this.txt_step_4.Size = new System.Drawing.Size(43, 20);
             this.txt_step_4.TabIndex = 9;
@@ -137,7 +139,7 @@
             // 
             // txt_step_3
             // 
-            this.txt_step_3.Location = new System.Drawing.Point(20, 98);
+            this.txt_step_3.Location = new System.Drawing.Point(20, 86);
             this.txt_step_3.Name = "txt_step_3";
             this.txt_step_3.Size = new System.Drawing.Size(43, 20);
             this.txt_step_3.TabIndex = 8;
@@ -158,7 +160,7 @@
             this.step_size.Controls.Add(this.txt_step_4);
             this.step_size.Location = new System.Drawing.Point(289, 12);
             this.step_size.Name = "step_size";
-            this.step_size.Size = new System.Drawing.Size(156, 162);
+            this.step_size.Size = new System.Drawing.Size(156, 141);
             this.step_size.TabIndex = 11;
             this.step_size.TabStop = false;
             this.step_size.Text = "Step";
@@ -191,7 +193,7 @@
             // 
             // txt_step2_key
             // 
-            this.txt_step2_key.Location = new System.Drawing.Point(90, 67);
+            this.txt_step2_key.Location = new System.Drawing.Point(90, 61);
             this.txt_step2_key.Name = "txt_step2_key";
             this.txt_step2_key.Size = new System.Drawing.Size(43, 20);
             this.txt_step2_key.TabIndex = 11;
@@ -199,7 +201,7 @@
             // 
             // txt_step3_key
             // 
-            this.txt_step3_key.Location = new System.Drawing.Point(90, 98);
+            this.txt_step3_key.Location = new System.Drawing.Point(90, 86);
             this.txt_step3_key.Name = "txt_step3_key";
             this.txt_step3_key.Size = new System.Drawing.Size(43, 20);
             this.txt_step3_key.TabIndex = 12;
@@ -207,7 +209,7 @@
             // 
             // txt_step4_key
             // 
-            this.txt_step4_key.Location = new System.Drawing.Point(90, 129);
+            this.txt_step4_key.Location = new System.Drawing.Point(90, 111);
             this.txt_step4_key.Name = "txt_step4_key";
             this.txt_step4_key.Size = new System.Drawing.Size(43, 20);
             this.txt_step4_key.TabIndex = 13;
@@ -224,7 +226,7 @@
             // 
             // txt_step_2
             // 
-            this.txt_step_2.Location = new System.Drawing.Point(20, 67);
+            this.txt_step_2.Location = new System.Drawing.Point(20, 61);
             this.txt_step_2.Name = "txt_step_2";
             this.txt_step_2.Size = new System.Drawing.Size(43, 20);
             this.txt_step_2.TabIndex = 7;
@@ -427,11 +429,30 @@
             this.cb_globalkeys.Text = "Global Keys";
             this.cb_globalkeys.UseVisualStyleBackColor = true;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(306, 164);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 13);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Stop motors";
+            // 
+            // txt_stop
+            // 
+            this.txt_stop.Location = new System.Drawing.Point(379, 160);
+            this.txt_stop.Name = "txt_stop";
+            this.txt_stop.Size = new System.Drawing.Size(43, 20);
+            this.txt_stop.TabIndex = 18;
+            this.txt_stop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // preferences
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(459, 360);
+            this.Controls.Add(this.txt_stop);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.groupWindows);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.groupBox2);
@@ -497,5 +518,7 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.GroupBox groupWindows;
         private System.Windows.Forms.CheckBox cb_globalkeys;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txt_stop;
     }
 }
